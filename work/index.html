@@ -212,6 +212,24 @@
             color: var(--color-dark);
             padding: 0.375rem 2rem;
         }
+
+        .hover:bg-accent:hover {
+            --tw-bg-opacity: 1;
+            background-color: #f1d506;
+        }
+
+        .bg-accent{
+            background-color:#f1d506;
+        }
+
+        .border-accent{
+            -tw-border-opacity: 1;
+            border-color: #f1d506 / var(--tw-border-opacity, 1));
+        }
+
+        .text-dark{
+            color:#333;
+        }
         
     </style>
 </head>
@@ -246,17 +264,17 @@
                             <button data-category="all" class="category-button text-base px-4 py-1.5 text-sm font-semibold rounded-full transition hover:opacity-80">All</button>
                         </li>
                         <li class="flex-shrink-0">
-                            <button data-category="branding" class="category-button text-base px-4 py-1.5 text-sm rounded-full border border-gray-300 transition hover:bg-gray-100">ブランディング</button>
+                            <button data-category="branding" class="category-button text-base px-4 py-1.5 text-sm rounded-full border border-gray-300 transition hover:bg-accent">ブランディング</button>
                         </li>
                         <li class="flex-shrink-0">
-                            <button data-category="web-attracting" class="category-button text-base px-4 py-1.5 text-sm font-semibold rounded-full border border-gray-300 transition hover:bg-gray-100">Web集客</button>
+                            <button data-category="web-attracting" class="category-button text-base px-4 py-1.5 text-sm font-semibold rounded-full border border-gray-300 transition hover:bg-accent">Web集客</button>
                         </li>
                         <li class="flex-shrink-0">
-                            <button data-category="recruit" class="category-button text-base px-4 py-1.5 text-sm font-semibold rounded-full border border-gray-300 transition hover:bg-gray-100">リクルート</button>
+                            <button data-category="recruit" class="category-button text-base px-4 py-1.5 text-sm font-semibold rounded-full border border-gray-300 transition hover:bg-accent">リクルート</button>
                         </li>
                         <!-- External Links Emulation -->
                         <li class="flex-shrink-0">
-                            <a href="#" target="_blank" class="flex items-center px-4 py-1.5 text-sm font-semibold rounded-full bg-white text-gray-800 border border-gray-300 transition hover:bg-gray-100">歯科関係
+                            <a href="#" target="_blank" class="flex items-center px-4 py-1.5 text-sm font-semibold rounded-full bg-white text-gray-800 border border-gray-300 transition hover:bg-accent">歯科関係
                                 <svg class="w-3 h-3 ml-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                             </a>
                         </li>
@@ -550,12 +568,12 @@
 
             // ボタンのアクティブ状態を更新
             categoryButtons.forEach(btn => {
-                btn.classList.remove('bg-gray-800', 'text-white', 'border-gray-800');
-                btn.classList.add('bg-white', 'text-gray-800', 'border-gray-300');
+                btn.classList.remove('bg-accent', 'text-white', 'border-accent');
+                btn.classList.add('bg-white', 'text-dark', 'border-accent');
 
                 if (btn.getAttribute('data-category') === filterCategory) {
-                    btn.classList.add('bg-gray-800', 'text-white', 'border-gray-800');
-                    btn.classList.remove('bg-white', 'text-gray-800', 'border-gray-300');
+                    btn.classList.add('bg-accent', 'text-white', 'border-accent');
+                    btn.classList.remove('bg-white', 'text-dark', 'border-gray-300');
                 }
             });
         }
@@ -582,6 +600,7 @@
 </body>
 
 </html>
+
 
 
 
