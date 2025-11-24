@@ -229,7 +229,7 @@
             color:#333;
         }
 
-        .c-archive02 {
+      /*  .c-archive02 {
             min-width: 320px;
         }
         .c-archive02__list {
@@ -283,7 +283,7 @@
         width: 1500px;
         margin: 0 0 0 auto;
     }
-}
+}*/
     </style>
     </style>
 </head>
@@ -361,143 +361,6 @@
         <div class="top-bg-white min-h-[500px] py-10 md:py-16">
             <div class="top-bg-white-inner container px-4">
                 
-                <!-- Category Filters -->
-                <div class="mb-8 md:mb-12 border-b border-gray-300 pb-4">
-                    <ul id="category-list" class="flex flex-wrap md:flex-nowrap gap-2 category-scroll-list">
-                        <li class="flex-shrink-0">
-                            <button data-category="all" class="category-button text-base px-4 py-1.5 text-sm font-semibold border border-accent rounded-full transition hover:opacity-80">All</button>
-                        </li>
-                        <li class="flex-shrink-0">
-                            <button data-category="branding" class="category-button text-base px-4 py-1.5 text-sm font-semibold rounded-full border border-accent transition hover:bg-accent">ブランディング</button>
-                        </li>
-                        <li class="flex-shrink-0">
-                        <button data-category="recruiting-site" class="category-button text-base px-4 py-1.5 text-sm font-semibold rounded-full border border-accent transition hover:bg-accent">求人サイト</button>
-                        </li>
-                        <li class="flex-shrink-0">
-                            <button data-category="recruiting-ads" class="category-button text-base px-4 py-1.5 text-sm font-semibold rounded-full border border-accent transition hover:bg-accent">求人広告</button>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Works Archive Grid -->
-                <div id="works-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-
-                    <!-- Mock Work Item Structure -->
-                    <a href="#" class="works-card relative block overflow-hidden shadow-lg" data-categories="branding">
-                        <div class="overflow-hidden">
-                            <img src="https://kuroyuki0327.github.io/kuroyuki/images/design01.jpg" alt="ひめそばの制作実績画像" class="works-card-img w-full h-full object-cover">
-                            <div class="works-card-overlay absolute inset-0"></div>
-                        </div>
-                        <div class="p-4 absolute inset-x-0 bottom-0 text-white z-10">
-                            <p class="text-xs opacity-70 mb-1">
-                                <span>十割そば ひめそば</span>
-                                <span class="hidden md:inline font-futura">｜ブランディング</span>
-                            </p>
-                            <p class="text-sm md:text-xl font-bold leading-snug">十割そば「ひめそば」の魅力を伝えるサイトづくり</p>
-                        </div>
-                    </a>
-
-                    <a href="#" class="works-card relative block overflow-hidden shadow-lg" data-categories="branding">
-                        <div class="overflow-hidden">
-                            <img src="https://kuroyuki0327.github.io/kuroyuki/images/design02.jpg" alt="BIMERAの制作実績画像" class="works-card-img w-full h-full object-cover">
-                            <div class="works-card-overlay absolute inset-0"></div>
-                        </div>
-                        <div class="p-4 absolute inset-x-0 bottom-0 text-white z-10">
-                            <p class="text-xs opacity-70 mb-1">
-                                <span>トータルビューティーサロン BIMERA(ビメラ）</span>
-                                <span class="hidden md:inline font-futura">｜ブランディング</span>
-                            </p>
-                            <p class="text-sm md:text-xl font-bold leading-snug">BIMERAのメニューやこだわり、店の雰囲気を伝える</p>
-                        </div>
-                    </a>
-
-                    <a href="#" class="works-card relative block overflow-hidden shadow-lg" data-categories="recruiting-site">
-                        <div class="overflow-hidden">
-                            <img src="https://kuroyuki0327.github.io/kuroyuki/images/design03.jpg" alt="SALONS Beauty Group美容師求人サイトの制作実績画像" class="works-card-img w-full h-full object-cover">
-                            <div class="works-card-overlay absolute inset-0"></div>
-                        </div>
-                        <div class="p-4 absolute inset-x-0 bottom-0 text-white z-10">
-                            <p class="text-xs opacity-70 mb-1">
-                                <span>SALONS Beauty Group美容師求人サイト</span>
-                                <span class="hidden md:inline">｜求人サイト</span>
-                            </p>
-                            <p class="text-sm md:text-xl font-bold leading-snug">求職者へ向けて働く環境・スタッフの雰囲気を伝える</p>
-                        </div>
-                    </a>
-
-                    <a href="#" class="works-card relative block overflow-hidden shadow-lg" data-categories="recruiting-ads">
-                        <div class="overflow-hidden">
-                            <img src="https://kuroyuki0327.github.io/kuroyuki/images/design04.jpg" alt="美容師求人の制作実績画像" class="works-card-img w-full h-full object-cover">
-                            <div class="works-card-overlay absolute inset-0"></div>
-                        </div>
-                        <div class="p-4 absolute inset-x-0 bottom-0 text-white z-10">
-                            <p class="text-xs opacity-70 mb-1">
-                                <span>SALONS Beauty Group美容師求人広告</span>
-                                <span class="hidden md:inline">｜求人広告</span>
-                            </p>
-                            <p class="text-sm md:text-xl font-bold leading-snug">ビジュアルと惹きつけるキャッチで魅力を伝えるInstagram求人フィード広告画像</p>
-                        </div>
-                    </a>
-
-                    <a href="#" class="works-card relative block overflow-hidden shadow-lg" data-categories="recruiting-ads">
-                        <div class="overflow-hidden">
-                            <img src="https://kuroyuki0327.github.io/kuroyuki/images/design05.jpg" alt="美容師求人（動画広告）の制作実績画像" class="works-card-img w-full h-full object-cover">
-                            <div class="works-card-overlay absolute inset-0"></div>
-                        </div>
-                        <div class="p-4 absolute inset-x-0 bottom-0 text-white z-10">
-                            <p class="text-xs opacity-70 mb-1">
-                                <span>SALONS Beauty Group美容師求人広告</span>
-                                <span class="hidden md:inline">｜求人広告</span>
-                            </p>
-                            <p class="text-sm md:text-xl font-bold leading-snug">スタッフの実際の声を取り込んだInstagramストーリーズ広告動画</p>
-                        </div>
-                    </a>
-                    
-                    <a href="#" class="works-card relative block overflow-hidden shadow-lg" data-categories="recruiting-site">
-                        <div class="overflow-hidden">
-                            <img src="https://kuroyuki0327.github.io/kuroyuki/images/design06.jpg" alt="アカデミーの制作実績画像" class="works-card-img w-full h-full object-cover">
-                            <div class="works-card-overlay absolute inset-0"></div>
-                        </div>
-                        <div class="p-4 absolute inset-x-0 bottom-0 text-white z-10">
-                            <p class="text-xs opacity-70 mb-1">
-                                <span>SALONSアカデミー</span>
-                                <span class="hidden md:inline">｜求人サイト</span>
-                            </p>
-                            <p class="text-sm md:text-xl font-bold leading-snug">その先を共に創り出す、和の力が可能性を広げる印象を与えるサイト</p>
-                        </div>
-                    </a>
-                    
-                    <a href="#" class="works-card relative block overflow-hidden shadow-lg" data-categories="recruit">
-                        <div class="overflow-hidden">
-                            <img src="https://kuroyuki0327.github.io/kuroyuki/images/design07.jpg" alt="採用サイトの制作実績画像" class="works-card-img w-full h-full object-cover">
-                            <div class="works-card-overlay absolute inset-0"></div>
-                        </div>
-                        <div class="p-4 absolute inset-x-0 bottom-0 text-white z-10">
-                            <p class="text-xs opacity-70 mb-1">
-                                <span>積水成型工業株式会社</span>
-                                <span class="hidden md:inline">｜リクルート</span>
-                            </p>
-                            <p class="text-sm md:text-xl font-bold leading-snug">プラスチックの可能性と企業の姿勢を表現した採用サイト</p>
-                        </div>
-                    </a>
-
-                    <a href="#" class="works-card relative block overflow-hidden shadow-lg" data-categories="recruit">
-                        <div class="overflow-hidden">
-                            <img src="https://kuroyuki0327.github.io/kuroyuki/images/design08.jpg" alt="採用サイトの制作実績画像" class="works-card-img w-full h-full object-cover">
-                            <div class="works-card-overlay absolute inset-0"></div>
-                        </div>
-                        <div class="p-4 absolute inset-x-0 bottom-0 text-white z-10">
-                            <p class="text-xs opacity-70 mb-1">
-                                <span>積水成型工業株式会社</span>
-                                <span class="hidden md:inline">｜リクルート</span>
-                            </p>
-                            <p class="text-sm md:text-xl font-bold leading-snug">プラスチックの可能性と企業の姿勢を表現した採用サイト</p>
-                        </div>
-                    </a>
-
-
-                    
-                </div>
 
         <div class="l-container is-col1">
             <div class="l-contents">
@@ -880,6 +743,7 @@
     </script>
 </body>
 </html>
+
 
 
 
