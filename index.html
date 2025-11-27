@@ -425,13 +425,13 @@
             position: relative;
             max-width: 1440px;
             margin: 0 auto;
-            margin-bottom: 50px; 
+            margin-bottom: 66px; 
             overflow: hidden; 
             opacity: 0;
         }
         @media (min-width: 1024px) {
             .works-title-container {
-                margin-bottom: 160px;
+                margin-bottom: 140px;
             }
         }
 
@@ -585,6 +585,10 @@
             transform: translateY(-100%); 
             z-index: 10;
         }
+
+        .about-title{
+            margin-top: 4rem;
+        }
         
         .about-title-en{
             font-family: "minerva-modern", sans-serif;
@@ -610,11 +614,13 @@
             border-bottom: 1px solid #bbb;
             padding-bottom: 8vw;
         }
+        
 
         @media screen and (min-width: 736px) {
         .about-title{
             padding-bottom: 4vw;
             margin-bottom: 4vw;
+            margin-top: 0;
         }}   
 
         .about-text-wrap {
@@ -662,6 +668,13 @@
             }
         }
 
+        @media (min-width: 736px) and (max-width: 1023px) {
+            .about-image {
+                min-width: 38vw;
+            }
+        }
+
+        
         .about-image img {
             width: 130vw;
             margin-left: -10vw;
@@ -1082,7 +1095,7 @@
         <section id="works" class="works py-32 md:py-48 relative overflow-hidden">
              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Works Title (Black Bar Animation) -->
-                <div id="works-title-anim" class="works-title-container mb-24 md:mb-40">
+                <div id="works-title-anim" class="works-title-container">
                     <div class="works-title-line-wrapper">
                         <div class="works-title-bar"></div>
                         <h2 class="works-title-en md:text-5xl font-en relative">Works</h2>
@@ -1213,37 +1226,37 @@
                     <div class="scroll-infinity overflow-hidden">
                         <div class="scroll-infinity__wrap">
                             <ul class="scroll-infinity__list scroll-infinity__list--left">
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img01.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img02.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img03.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img04.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img05.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img07.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img08.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img09.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img10.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img11.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img12.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img13.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img14.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img15.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img01.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img02.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img03.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img04.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img05.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img07.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img08.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img09.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img10.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img11.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img12.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img13.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img14.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img15.png"></li>
                             </ul>
                             <!-- Duplicate for seamless loop -->
                             <ul class="scroll-infinity__list scroll-infinity__list--left" aria-hidden="true">
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img16.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img17.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img18.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img19.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img20.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img21.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img22.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img23.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img24.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img25.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img26.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img27.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img29.jpg"></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img30.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img16.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img17.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img18.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img19.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img20.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img21.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img22.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img23.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img24.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img25.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img26.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img27.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img29.png"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img30.png"></li>
                             </ul>
                         </div>
                     </div>
