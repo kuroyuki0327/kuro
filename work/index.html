@@ -373,23 +373,74 @@
             color: var(--color-light);
         }
 
-        /* Page Top Button */
+        /* -----------------------------------------------------------
+        // [修正] Page Top Button Styles - 右下設置＆おしゃれなデザイン
+        // ----------------------------------------------------------- */
         .page-top-btn {
             position: fixed;
-            right: 70px;
-            bottom: 180px;
+            /* PC: 右下 */
+            right: 40px; 
+            bottom: 40px;
             z-index: 40;
             opacity: 0;
-            transition: opacity 0.5s, transform 0.5s;
+            /* ふわっと出現/消滅のアニメーション */
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+            visibility: hidden; /* 初期状態では非表示 */
         }
+        
         .page-top-btn.visible {
             opacity: 1;
-            transform: translateY(0);
+            visibility: visible;
         }
+
+        /* ボタン本体のデザイン */
+        .page-top-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80px; /* 丸のサイズ */
+            height: 80px; /* 丸のサイズ */
+            border-radius: 50%;
+            background-color: var(--color-accent); /* アクセントカラー */
+            color: var(--color-dark);
+            text-align: center;
+            font-size: 0.75rem; /* Page Top の文字サイズ */
+            font-weight: 500;
+            line-height: 1.2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s;
+        }
+        
+        .page-top-link:hover {
+            background-color: #ffd700; /* ホバーで少し明るく */
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* 矢印のデザイン */
+        .page-top-icon {
+            font-size: 1.5rem; /* 矢印のサイズ */
+            margin-bottom: 2px; /* Page Top の文字との隙間 */
+            /* 矢印を少し上に配置するための調整 */
+            transform: translateY(-2px); 
+        }
+
         @media (max-width: 768px) {
             .page-top-btn {
+                /* SP: 右下 */
                 right: 20px;
-                bottom: 80px;
+                bottom: 20px;
+            }
+            .page-top-link {
+                width: 60px; /* 丸のサイズを小さく */
+                height: 60px; /* 丸のサイズを小さく */
+            }
+            .page-top-icon {
+                font-size: 1.2rem;
+            }
+            .page-top-link span {
+                font-size: 0.6rem;
             }
         }
 
@@ -670,7 +721,7 @@
         </nav>
 
         <main role="main">
-            <!-- Sub-Image / Title Section -->
+            <!-- Sub-Image / Title Section (FVとみなすセクション) -->
             <div class="work-top relative flex items-center justify-center bg-cover bg-center">
                 <div class="inset-0 top-inner">
                     <div class="l-sub-img__works text-white">
@@ -833,10 +884,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Contact CTA Section (既存のセクションを一旦削除し、index_2511のフッターに統合) -->
-            <!-- <section class="bg-gray-800 py-16 md:py-24 text-white" style="background-color: var(--color-primary-dark);"> ... </section> -->
-
         </main>
 
         <!-- Footer (index_2511.htmlから移植) -->
@@ -868,8 +915,6 @@
                     <a href="#" class="social-icon text-3xl text-gray-700 hover:text-accent transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-icon text-3xl text-gray-700 hover:text-accent transition-colors" aria-label="LINE"><i class="fab fa-line"></i></a>
                 </div>
-            <!-- Page Top Button -->
-            <p id="page-top" class="page-top-btn visible"><a href="#top"><img class="w-16 h-16" src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2337383C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'&gt;&lt;path d='M12 19V5M5 12l7-7 7 7'/&gt;&lt;/svg&gt;" alt="ページトップへ"></a></p>
         </div>
         
         <div class="footer__content-wrapper mx-auto flex justify-between items-center py-6 px-4 sm:px-6 lg:px-8">
@@ -883,6 +928,16 @@
             <small class="text-xs font-medium tracking-[0.16em] text-center w-full sm:w-auto">© 2024 JURI FUKUI</small>
         </div>
     </footer>
+    
+    <!-- [修正] Page Top Button (HTML構造) -->
+    <div id="page-top" class="page-top-btn" role="button" aria-label="ページトップへ">
+        <a href="#top" class="page-top-link">
+            <!-- Font Awesomeの上矢印アイコン -->
+            <i class="fas fa-arrow-up page-top-icon"></i> 
+            <span>Page Top</span>
+        </a>
+    </div>
+    
     </div>
 
     <script>
@@ -896,7 +951,7 @@
         // 修正: ナビゲーションリスト全体を取得
         const navListContainer = document.getElementById('nav-list'); 
         // index_2511_workにはtopセクションがないため、代わりにbodyの先頭を判定基準にする
-        const topSection = document.querySelector('.work-top'); 
+        const topSection = document.querySelector('.work-top'); // FVセクション
         const pageTopBtn = document.getElementById('page-top');
 
         // WORKSのデフォルト画像URLを取得
@@ -1154,8 +1209,11 @@
 
         // Page Top Button Visibility
         function updatePageTopButton() {
-            // work-topセクションの高さを超えたら表示
-            if (window.scrollY > topSection.offsetHeight) {
+            // work-topセクション (FV) の高さを超えたら表示
+            // window.innerHeight を使用して、FV領域全体を基準にする
+            const fvHeight = topSection ? topSection.offsetHeight : window.innerHeight;
+
+            if (window.scrollY > fvHeight - 100) { // FVの下端から少し上 (100px) を通過したタイミングで出現
                 pageTopBtn.classList.add('visible');
             } else {
                 pageTopBtn.classList.remove('visible');
@@ -1164,6 +1222,7 @@
 
         pageTopBtn.addEventListener('click', function(e) {
             e.preventDefault();
+            // ページトップへスムーズスクロール
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
@@ -1171,7 +1230,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             updateCursor();
             filterWorks('all'); // フィルタリングを初期化
-            updatePageTopButton();
+            updatePageTopButton(); // 初期ロード時のボタン状態を設定
             // Force initial state check to ensure menu is closed and layout is correct
             window.dispatchEvent(new Event('resize')); 
         });
@@ -1184,8 +1243,3 @@
 </body>
 
 </html>
-
-
-
-
-
