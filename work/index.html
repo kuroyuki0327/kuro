@@ -259,6 +259,32 @@
 
         /* --- Footer / Contact Styles (index_2511から移植) --- */
 
+        footer{
+            position:relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 1px;
+            height: 30px;
+            z-index: 5;
+            bottom: 0;
+            background-color: #433f37;
+        }
+
+        footer .contact__content-wrapper::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 1px;
+            height: 30px;
+            z-index: 5;
+            top: 0;
+            background-color: white;
+        }
+        
         .footer__contact{
             position: relative;
             padding: 9rem auto 4rem;
@@ -296,6 +322,7 @@
     
         .contact__content-wrapper{
             padding: 8rem 0 0;
+            position:relative;
         }
 
         .contact__thanks-message{
@@ -1155,5 +1182,6 @@
 </body>
 
 </html>
+
 
 
