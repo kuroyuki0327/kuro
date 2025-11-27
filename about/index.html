@@ -51,17 +51,16 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
             --color-primary-dark: #363d4b; /* index_2511_workのCTA背景色 */
         }
 		
-body {
-    padding: 0;
-    margin: 0;
-    color: #000;
-    font-size: 3.5vw;
-    font-family: var(--gothic);
-    -webkit-text-size-adjust: 100%;
-    font-style: normal;
-    line-height: 1;
-}
-
+        body {
+            font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+            color: var(--color-dark);
+            background-color: var(--color-light);
+            font-size: 15px;
+            letter-spacing: 0.05em;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+		
 article, aside, canvas, details, figcaption, figure, header, footer, hgroup, menu, nav, section, summary {
     display: block;
 }
@@ -296,20 +295,41 @@ a:hover {
 
 .midashi01 .en {
     margin-bottom: 2.5vw;
-    font-size: 9.4vw;
-    font-family: minerva-modern; 
+    font-size: 1.3rem;
+    font-family: "futura-pt", sans-serif;
     font-weight: 400;
     letter-spacing: .02em;
     display: block;
 }
 
 .midashi01 .jp {
-    font-size: 3.4vw;
-    font-family: var(--mincho);
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.midashi01 {
+    margin: 0 auto 8vw;
+    position: relative;
+    line-height: 1;
+}
+
+.midashi02 .en {
+    margin-bottom: 2.5vw;
+    font-size: 2rem;
+    font-family: minerva-modern;
+    font-weight: 400;
+    letter-spacing: .02em;
     display: block;
 }
 
-.more01 {
+.midashi02 .jp {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 2rem;
+}		
+
+.more02 {
     width: auto;
     min-width: 60vw;
     padding: 5vw 8vw;
@@ -1182,12 +1202,12 @@ span.ast {
 .intro{position: relative;padding-top: 10vw;margin-bottom: 14vw;}
 .intro-ttl .en{font-size: 11vw; font-family: minerva-modern; font-weight: 400;display: block;opacity: 0.1;text-align: right;line-height: 1;position: absolute; right: 0;z-index: -1;letter-spacing: 0.01em;}
 .intro .ttl{font-family: var(--mincho);font-size: 7vw;}
-
+.intro_img{width: 100%; border-radius: 10px; display: flex; flex-direction: column; align-items: center;}
 .intro_img img{width: 100%;}
-.intro_img img:nth-child(1){position: relative;left: -6vw;margin-bottom: 4vw;}
+.intro_img img:nth-child(1){position: relative; margin-bottom: 4vw;}
 .intro_img img:nth-child(2){width: 100%;margin: 0 0 0 auto;}
 .intro_img .deco{position: absolute;width: 50%;right: 0;z-index: 1;bottom: -23vw;opacity: 0.5;} /* decoにopacityを追加 */
-
+.intro-txt{width: 100%; padding: 2rem 1rem; }
 .recommend{
     background: #a0522d; /* 画像の代わりに茶色で代替 */
     /* url(../images/about/recommend_bg.jpg)top center no-repeat; */
@@ -1272,9 +1292,7 @@ pc-size
 
     .midashi01 .en {
         margin-bottom: 10px;
-        font-size: 45px;
         letter-spacing: 2px;
-        color: var(--color-accent);
         font-size: 0.8rem;
         left: 0;
     }
@@ -1768,13 +1786,13 @@ pc-size
     .intro{padding-top: 40px;margin-bottom: 100px;}
     .intro-ttl .en{font-size: 80px;right: auto;left: 60px;opacity: 1;color: #f3f3f3;}
     .intro .ttl{font-size: 36px;}
-    
+    .intro_img{width: 45%;}
     .intro_img{display: flex;justify-content: space-between;align-items: flex-start;margin-top: 50px;}
     .intro_img img{width: auto;} /* flexに合わせて調整 */
-    .intro_img img:nth-child(1){position: relative;left: auto;margin-bottom: 0;width: 45%;}
+    .intro_img img:nth-child(1){position: relative;left: auto;margin-bottom: 0;width: 45%;left: -6vw;}
     .intro_img img:nth-child(2){width: 50%;margin: -60px 0 0 -80px;position: relative;}
     .intro_img .deco{width: 25%;bottom: -50px;right: auto;transform: translateX(92.5%);left: 50%;}
-
+	.intro-txt{width: 50%; padding-left: 20px;}
     .recommend{margin-bottom: 70px;}
     .recommend .ttl{margin-bottom: 40px;padding-top: 70px;}
     .recommend .ttl .en{font-size: 90px;top: -10px;}
@@ -1949,13 +1967,13 @@ pc-size
 					</div>
 					<div class="intro_img">
                         <!-- 写真を挿入 -->
-						<img class="retina" loading="lazy" src="https://placehold.co/400x500/f8f4f1/333?text=黒野坪祐貴+Photo" width="400" height="500" alt="黒野坪祐貴の写真" style="width: 45%; border-radius: 10px;">
+						<img class="retina" loading="lazy" src="https://placehold.co/400x500/f8f4f1/333?text=黒野坪祐貴+Photo" width="400" height="500" alt="黒野坪祐貴の写真">
 						
 						<!-- 自己紹介テキスト (職務経歴書-職務要約と履歴書を基に修正) -->
-						<div style="width: 50%; padding-left: 20px;">
+						<div class="intro-txt">
 							<h3 class="midashi01" style="margin-bottom: 2vw;">
 								<span class="en">Kuronotsubo Yuki</span>		
-								<span class="jp" style="font-size: 4vw;">黒野坪 祐貴</span>
+								<span class="jp">黒野坪 祐貴</span>
 							</h3>
 							<p>新卒で株式会社メニコンに入社し、3年間接客販売（視力検査補助、眼科受付含む）に従事しました。お客様対応を通じて培った「**相手の立場で考える力**」と「**分かりやすく伝える力**」をデザインの基盤としています。</p>
 							<p>2021年より株式会社イーエスホールディングスにて、美容・飲食・ECなど幅広い業界の**販促物、Webサイト、SNS広告の制作**を一貫して担当しています。（デザイナー歴 [2021年4月～現在]）</p>
@@ -1968,7 +1986,7 @@ pc-size
 				
 				<!-- 2. デザインで使えるツールのスキル紹介 (活かせるスキル-グラフィックデザイン/Webデザイン/AIを反映) -->
 				<div class="features">
-					<h3 class="midashi01">
+					<h3 class="midashi02">
 						<span class="en">Skills & Tools</span>
 						<span class="jp">デザインスキルと使用ツール</span>
 					</h3>
