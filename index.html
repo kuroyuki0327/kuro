@@ -619,7 +619,6 @@
 
         .about-text-wrap {
             width: 90vw;
-            margin: -15vw auto 0;
             z-index: 2;
             position: relative;
         }
@@ -672,6 +671,8 @@
             .about-image img {
                 width: 100%;
                 margin: 0;
+                position: relative;
+                bottom: 2rem;
             }
         }
 
@@ -723,6 +724,15 @@
         @keyframes infinity-scroll-right {
             from { transform: translateX(-100%); }
             to { transform: translateX(0%); }
+        }
+
+        .about__profile-text h3{
+            padding: 2rem 0 1.5rem;
+            font-size: 2rem;
+        }
+
+        .leading-loose{
+            margin-bottom: 2.5rem;
         }
 
         /* =========================================================================
@@ -1156,8 +1166,8 @@
                         </div>
 
                         <div class="about__profile-text">
-                            <h3 class="md:text-3xl pb-8">黒野坪 祐貴</h3>
-                            <p class="text-sm leading-loose mb-8 md:mb-16 text-justify">
+                            <h3 class="">黒野坪 祐貴</h3>
+                            <p class="text-sm leading-loose text-justify">
                                 個人の方にSNSアイコン等のイラストを描く活動をしていました。
                                 情報やブランドイメージを動きのある形で伝えることができるWebデザインに惹かれ、Webデザイナーを目指すことを決意。
                                 8ヶ月間スクールでWebデザインについて学び、現在は転職活動をしています。
@@ -1203,23 +1213,37 @@
                     <div class="scroll-infinity overflow-hidden">
                         <div class="scroll-infinity__wrap">
                             <ul class="scroll-infinity__list scroll-infinity__list--left">
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/B5D7E0/37383C?text=01"><span class="block text-xs text-gray-400 mt-1">お散歩ビンゴイラスト</span></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/DCEBEE/37383C?text=02"><span class="block text-xs text-gray-400 mt-1">エステサロンイラスト</span></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/FBE183/37383C?text=03"><span class="block text-xs text-gray-400 mt-1">ハンドメイドロゴ</span></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/84B5C5/FBE183?text=04"><span class="block text-xs text-gray-400 mt-1">LINE着せ替え</span></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/DCEBEE/37383C?text=05"><span class="block text-xs text-gray-400 mt-1">SNSアイコン</span></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/FBE183/37383C?text=06"><span class="block text-xs text-gray-400 mt-1">クッキーショップイラスト</span></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/B5D7E0/37383C?text=07"><span class="block text-xs text-gray-400 mt-1">カレンダーイラスト</span></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img01.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img02.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img03.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img04.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img05.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img07.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img08.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img09.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img10.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img11.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img12.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img13.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img14.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img15.jpg"></li>
                             </ul>
                             <!-- Duplicate for seamless loop -->
                             <ul class="scroll-infinity__list scroll-infinity__list--left" aria-hidden="true">
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/B5D7E0/37383C?text=01"><span class="block text-xs text-gray-400 mt-1">お散歩ビンゴイラスト</span></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/DCEBEE/37383C?text=02"><span class="block text-xs text-gray-400 mt-1">エステサロンイラスト</span></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/FBE183/37383C?text=03"><span class="block text-xs text-gray-400 mt-1">ハンドメイドロゴ</span></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/84B5C5/FBE183?text=04"><span class="block text-xs text-gray-400 mt-1">LINE着せ替え</span></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/DCEBEE/37383C?text=05"><span class="block text-xs text-gray-400 mt-1">SNSアイコン</span></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/FBE183/37383C?text=06"><span class="block text-xs text-gray-400 mt-1">クッキーショップイラスト</span></li>
-                                <li class="scroll-infinity__item p-2"><img src="https://placehold.co/150x150/B5D7E0/37383C?text=07"><span class="block text-xs text-gray-400 mt-1">カレンダーイラスト</span></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img16.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img17.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img18.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img19.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img20.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img21.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img22.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img23.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img24.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img25.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img26.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img27.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img29.jpg"></li>
+                                <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img30.jpg"></li>
                             </ul>
                         </div>
                     </div>
