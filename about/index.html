@@ -1932,8 +1932,20 @@ pc-size
     .point .list span{padding: 10px 10px 10px 2em;margin-bottom: 10px;}
 
     /* Magazine List PC Style */
+    /* 2列レイアウトに変更 */
+    .magazine-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2列 */
+        gap: 0 40px; /* 横の隙間40px、縦は0（borderで区切るため） */
+        border-top: none; /* コンテナのボーダーを削除 */
+        margin-top: 40px;
+    }
     .magazine-item {
+        width: 100%;
         padding: 20px 0;
+        border-top: 1px dotted #ccc; /* 各アイテムの上に線 */
+        border-bottom: 1px dotted #ccc; /* 各アイテムの下に線 */
+        margin-bottom: -1px; /* 縦に並ぶアイテムのボーダー重複を防ぐ調整 */
     }
     .magazine-label {
         font-size: 14px;
