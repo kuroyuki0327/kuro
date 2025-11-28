@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portforio｜黒野坪 祐貴</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome (ソーシャルメディアアイコン用) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Font -->
     <link rel="stylesheet" href="https://use.typekit.net/lpw2bst.css">
     <link rel="stylesheet" href="https://use.typekit.net/sxz8txc.css">
     <style>
-        /* フォント設定 */
+        /*
+         * --- 変数とベーススタイルの統合 ---
+         */
         @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap'); /* Worksページのフォントも追加 */
 
         :root {
             --color-dark: #333;
@@ -23,6 +23,7 @@
             --color-hover-orange: #333; 
             --font-jp: "Zen Kaku Gothic New", sans-serif;
             --font-en: "Albert Sans", sans-serif;
+            --color-primary-dark: #363d4b;
         }
 
         body {
@@ -51,14 +52,13 @@
         ul { list-style: none; }
         a { text-decoration: none; color: inherit; }
 
-        /* FV スライドショーアニメーション */
+        /* --- FV スライドショーアニメーション (index_top.html) --- */
         .mv-slide {
             height: 100vh;
             width: 100%;
             background-size: cover;
             background-position: center;
             opacity: 0;
-            /* ここを修正: transition: opacity 1.5s ease; から duration-500 を使用 */
             transition: opacity 1.5s ease-in-out; 
             position: absolute;
             top: 0;
@@ -73,16 +73,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* グレー (RBG: 0, 0, 0) を 20% 透過 (0.2) で設定 */
             background-color: rgba(0, 0, 0, 0.2); 
-            z-index: 10; /* FV画像(z-index: 1)より上で、ロゴテキスト(z-index: 20)より下に配置 */
-            pointer-events: none; /* クリックイベントを透過させる */
+            z-index: 10;
+            pointer-events: none;
         }
         
-        /* 変更点: アクティブクラスはフェードインを担当 */
         .mv-slide-active {
             opacity: 1;
-            /* ズームインアニメーションを適用 */
             animation: zoomIn 10s forwards;
         }
 
@@ -173,7 +170,6 @@
             .logo-sub-text {
                 font-size: 2.666666666666667vw;
                 padding-left: 28vw; 
-                /*padding-bottom: 42.66666666666667vw;*/
             }
             .logo-sub-text::before {
                 left: 0;
@@ -226,11 +222,11 @@
         }
 
 
-        /* --- ハンバーガーアイコンの修正部分 --- */
+        /* --- ハンバーガーアイコンの修正部分 (index_top.htmlベース) --- */
         .hamburger {
             position: relative;
             z-index: 60; 
-            width: 40px; /* サイズ固定 */
+            width: 40px; 
             height: 40px;
             padding: 0;
             display: flex;
@@ -241,13 +237,13 @@
         .hamburger span {
             display: block;
             position: absolute;
-            height: 1.5px; /* 線を少し太く */
+            height: 1.5px; 
             width: 80%;
             background: var(--color-dark);
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* バネのような動き */
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
         }
         .hamburger.open span {
-            background-color: var(--color-light); /* メニューオープン時は白 */
+            background-color: var(--color-light); 
         }
         .hamburger span:nth-child(1) { top: 38%; }
         .hamburger span:nth-child(2) { bottom: 38%; }
@@ -258,14 +254,14 @@
             transform: rotate(45deg);
         }
         .hamburger.open span:nth-child(2) {
-            bottom: auto; /* bottomをautoにリセット */
-            top: 50%; /* 中央に移動 */
+            bottom: auto; 
+            top: 50%; 
             transform: rotate(-45deg);
         }
         /* ---------------------------------- */
 
         /* =========================================================================
-            Navigation Menu Styles (PC & SP)
+            Navigation Menu Styles (index_top.htmlベース & index_work.htmlのコンテンツ)
             ========================================================================= */
 
         /* Full-screen Nav Container */
@@ -275,16 +271,18 @@
             right: 0;
             width: 100%;
             height: 100vh;
-            background-color: #000000; /* 背景を黒に変更 */
+            background-color: #000000; 
             z-index: 50;
             overflow-y: auto;
-            /* メニュー開閉時のフェードアニメーション */
-            opacity: 0; /* 初期状態で非表示 */
+            opacity: 0; 
             transition: opacity 0.5s ease; 
         }
         /* Mobile: ナビゲーションメニューのリンク色を白に統一 */
         .sp-nav a {
             color: var(--color-light); 
+            font-family: "minerva-modern", sans-serif; /* index_workから移植 */
+            font-weight: 400; /* index_workから移植 */
+            font-style: normal; /* index_workから移植 */
         }
 
         /* フェードイン用クラス (JSで付与) */
@@ -300,8 +298,8 @@
                 position: relative;
                 width: 50%;
                 height: 100%;
-                background-color: #000000; /* PC版も黒背景で統一 */
-                overflow: hidden; /* 画像が親要素の外にはみ出さないように */
+                background-color: #000000; 
+                overflow: hidden; 
             }
             
             /* 画像コンテナ: 画像の切り替えアニメーションを管理する */
@@ -313,7 +311,6 @@
                 height: 100%;
                 background-size: cover;
                 background-position: center;
-                /* デフォルトで非表示、かつ少し大きくしておく */
                 opacity: 0;
                 transform: scale(1.05);
                 transition: opacity 0.5s ease-out, transform 0.5s ease-out;
@@ -328,26 +325,24 @@
             .nav-content-side {
                 width: 50%;
                 height: 100%;
-                /* 添付画像に合わせて flex と配置を修正 */
                 display: flex;
                 flex-direction: column;
-                justify-content: center; /* 垂直方向中央寄せ */
-                align-items: flex-start; /* 左寄せ */
+                justify-content: space-between; /* index_workから修正 */
+                align-items: flex-start; 
                 padding-top: 0;
                 padding-left: 100px;
-                background-color: #000000; /* 黒背景 */
+                background-color: #000000; 
             }
 
             .sp-nav ul {
                 display: block;
-                padding-top: 0;
-                padding-left: 0;
+                padding-top: 6rem; /* index_workから移植 */
+                padding-left: 6rem; /* index_workから移植 */
                 height: auto;
-                /* メニュー項目全体のスペースを調整 */
                 margin-bottom: 4rem; 
             }
             .sp-nav li {
-                margin-bottom: 1.5rem; /* リンク間のスペースを調整 */
+                margin-bottom: 4rem !important; /* index_workから移植 */
             }
             .nav-link-sp {
                 padding: 0;
@@ -355,44 +350,37 @@
                 line-height: 1.2;
                 letter-spacing: 0.15em;
                 transition: color 0.3s;
-                color: var(--color-light); /* リンク色を白に */
+                color: var(--color-light); 
             }
             .nav-link-sp:hover {
                 color: var(--color-accent);
             }
 
-            /* 添付画像の配置を再現するためのコンタクトボタン風のスタイル */
-            .pc-nav-contact-btn {
-                display: inline-block;
-                padding: 0.75rem 2rem;
-                border: 1px solid var(--color-light);
-                color: var(--color-light);
-                text-align: center;
-                transition: all 0.3s ease;
-                font-size: 1rem;
-                letter-spacing: 0.1em;
-                margin-bottom: 1rem;
-            }
-            .pc-nav-contact-btn:hover {
-                background-color: var(--color-light);
-                color: var(--color-dark);
-            }
+            /* PC Nav Contact/Social (index_workから移植・調整) */
             .pc-nav-contact-link-wrapper {
-                margin-top: 4rem;
+                margin-top: 0;
                 margin-bottom: 2rem;
+            }
+            .pc-nav-contact-link-wrapper p.col-ac {
+                color: var(--color-accent); /* index_workのクラス */
             }
             .pc-nav-contact-link-wrapper a {
                 display: block;
-                margin-bottom: 0.5rem;
-                font-size: 0.875rem;
+                margin-bottom: 1.5rem; /* index_workから移植 */
+                margin-top: 1rem; /* index_workから移植 */
+                font-size: 1.875rem; /* index_workから移植 */
                 letter-spacing: 0.1em;
                 color: var(--color-gray-light);
             }
+            .nav-pad{
+                padding-bottom: 6rem;
+                padding-left: 6rem;
+                margin-top: 0;
+            }
         }
 
-        /* Mobile Menu Layout (Center Stacked) - 添付ファイルに合わせて画像を削除 */
+        /* Mobile Menu Layout (Center Stacked) - index_top.htmlベース */
         @media (max-width: 1023px) {
-            /* JS will switch hidden/block */
             .sp-nav {
                 padding-top: 80px;
             }
@@ -407,16 +395,11 @@
             .nav-link-sp {
                 padding: 1rem 0;
                 font-size: 1.5rem;
-                display: block; /* Flexを解除してシンプルなブロックに */
+                display: block; 
                 align-items: initial;
                 gap: initial;
             }
             
-            /* モバイルナビゲーション画像 (削除) */
-            .nav-link-sp .sp-nav-image {
-                display: none;
-            }
-
             /* SP Navのソーシャルアイコン配置 */
             .sp-nav-social {
                 padding: 3rem 2rem 1rem;
@@ -434,7 +417,7 @@
             color: var(--color-accent);
         }
 
-        /* --- Works Section Title (New Design - from uploaded file) --- */
+        /* --- Works Section Title (New Design - from index_top.html) --- */
         .works-title-container {
             text-align: center;
             position: relative;
@@ -552,7 +535,7 @@
              border-bottom-color: var(--color-accent);
         }
         .works-item-hover:hover .works-item-default-btn::after {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none" stroke="%2384B5C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4.5h10M7 1l4 3.5-4 3.5"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none" stroke="%23f1d506" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4.5h10M7 1l4 3.5-4 3.5"/></svg>');
         }
 
         .tag-text{
@@ -766,7 +749,7 @@
         }
 
         /* =========================================================================
-            Footer / Button Styles
+            Footer / Button Styles (index_work.htmlとindex_top.htmlを統合)
             ========================================================================= */
         
         /* Mail Button */
@@ -785,28 +768,188 @@
             width:80vw;
             margin:0 auto;
         }
+        
+        /* Footer Contact Section */
+        footer{
+            position: relative;
+            padding-top: 30px;
+            margin-top: 6rem;
+        }
 
-        /* Page Top Button */
+        footer::before {
+            content: '';
+            top: -1.9rem;
+            position: absolute;
+            left: 50%;
+            width: 1px;
+            height: 30px;
+            z-index: 5;
+            bottom: 0;
+            background-color: #433f37;
+        }
+
+        footer .contact__content-wrapper::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 1px;
+            height: 30px;
+            z-index: 5;
+            top: 0;
+            background-color: white;
+        }
+        
+        .footer__contact{
+            position: relative;
+            padding: 9rem auto 4rem;
+            height: 43rem;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            overflow: auto;
+        }
+
+        @media (min-width: 768px) {
+            .footer__contact{
+                padding: 8rem auto 4rem;
+                height:700px; 
+            }
+        }
+
+        /* 背景画像の設定 */
+        .footer__contact:before{
+            background: url(https://kuroyuki0327.github.io/kuroyuki/images/footer-contact-bg.jpg) no-repeat center; 
+            content: '';
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+
+        @media (min-width: 768px) { 
+            .footer__contact:before{
+                background-image: url(images/footer-contact-bg-pc.jpg)!important; 
+                background-size: cover;
+            }
+        }
+    
+        .contact__content-wrapper{
+            padding: 9rem 0 0;
+            position:relative;
+        }
+
+        @media (min-width: 768px) { 
+        .contact__content-wrapper{
+            padding: 12rem 0 0;
+        }}
+
+        .contact__thanks-message{
+            font-size: 35px;
+            color: #fff;
+            text-shadow: 0 0 10px #5f493b;
+            margin-bottom: 5rem;
+            margin-top: 32px;
+        }
+
+        @media (min-width: 768px) { 
+        .contact__thanks-message{
+            margin-bottom: 5rem; 
+        }}
+
+        .contact-title{
+            font-family: "minerva-modern", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 4rem;
+            letter-spacing: 0.2rem;
+            display: flex;
+            justify-content: center;
+            color: var(--color-dark); 
+        }
+        
+        @media (min-width: 768px) { 
+        .contact-title{
+            font-size: 7rem;
+        }}
+
+        .footer__content-wrapper{
+            background-color: #000;
+            color: #fff;
+            margin-top: 4rem;
+        }
+
+
+        /* Page Top Button (index_work.htmlのスタイルを採用) */
         .page-top-btn {
             position: fixed;
-            right: 70px;
-            bottom: 180px;
+            right: 40px; 
+            bottom: 40px;
             z-index: 40;
             opacity: 0;
-            transition: opacity 0.5s, transform 0.5s;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+            visibility: hidden; 
         }
+        
         .page-top-btn.visible {
             opacity: 1;
-            transform: translateY(0);
+            visibility: visible;
         }
+
+        .page-top-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80px; 
+            height: 80px; 
+            border-radius: 50%;
+            background-color: var(--color-accent); 
+            color: var(--color-dark);
+            text-align: center;
+            font-size: 0.75rem; 
+            font-weight: 500;
+            line-height: 1.2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s;
+        }
+        
+        .page-top-link:hover {
+            background-color: #ffd700; 
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .page-top-icon {
+            font-size: 1.5rem; 
+            margin-bottom: 2px; 
+            transform: translateY(-2px); 
+        }
+
         @media (max-width: 768px) {
             .page-top-btn {
                 right: 20px;
-                bottom: 80px;
+                bottom: 20px;
+            }
+            .page-top-link {
+                width: 60px; 
+                height: 60px; 
+            }
+            .page-top-icon {
+                font-size: 1.2rem;
+            }
+            .page-top-link span {
+                font-size: 0.6rem;
             }
         }
         
-        /* --- 「すべてみる」ボタンのカスタムスタイル --- */
+        /* --- 「すべてみる」ボタンのカスタムスタイル (index_top.html) --- */
         .custom-big-btn {
             border: 1px solid var(--color-gray-light);
             border-radius: 9999px;
@@ -915,102 +1058,19 @@
             }
         }
 
-        .footer__contact{
-            position: relative;
-            padding: 9rem auto 4rem;
-            height: 43rem;
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            overflow: auto;
+        .col-ac{
+            color: var(--color-accent);
         }
-
-        @media (min-width: 768px) {
-        .footer__contact{
-            padding: 8rem auto 4rem;
-            height:700px;
-            }
-        }
-
-
-
-        @media (min-width: 768px) { 
-            .footer__contact:before{
-                background-image: url(images/footer-contact-bg-pc.jpg)!important;
-            }
-        }
-    
-
-    .footer__contact:before{
-        background: url(images/footer-contact-bg.jpg) no-repeat center;
-        content: '';
-        width: 100%;
-        height: 400px;
-        background-size: cover;
-        z-index: -1;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        -moz-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
-    }
-    
-    .contact__content-wrapper{
-        padding: 10rem 0 0;
-    }
-
-     @media (min-width: 768px) { 
-    .contact__content-wrapper{
-        padding: 12rem 0 0;
-    }}      
-
-    .contact__thanks-message{
-        font-size: 35px;
-        color: #fff;
-        text-shadow: 0 0 10px #5f493b;
-        margin-bottom: 5rem;
-    }
-
-    @media (min-width: 768px) { 
-    .contact__thanks-message{
-        margin-bottom: 5rem;
-    }}
-
-    .contact-title{
-    font-family: "minerva-modern", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 4rem;
-    letter-spacing: 0.2rem;
-    display: flex;
-    justify-content: center;
-    }
-    
-    @media (min-width: 768px) { 
-    .contact-title{
-        font-size: 7rem;
-    }}
-
-    .footer__content-wrapper{
-        background-color: #000;
-        color: #fff;
-        margin-top: 4rem;
-    }
-
+        
     </style>
 </head>
 <body>
 
 <div class="body-wrapper">
-    <!-- Custom Cursor (Desktop Only) -->
     <div id="cursor" class="hidden lg:block fixed w-2.5 h-2.5 rounded-full bg-gray-500 z-[9999] pointer-events-none transition-all duration-500 ease-out" style="transform: translate(-5px, -5px);"></div>
 
-    <!-- Header -->
     <header class="fixed top-0 left-0 w-full h-20 z-51">
         <div class="mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-end items-center">
-            <!-- Hamburger Icon (PC & Mobile) - Xボタンの役割を兼ねる -->
             <button id="main-hamburger" class="hamburger z-50 w-10 h-10 relative" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -1018,89 +1078,71 @@
         </div>
     </header>
 
-    <!-- SP & PC Full-Screen Navigation Menu -->
     <nav id="sp-nav" class="sp-nav hidden lg:flex-row bg-black">
-        <!-- Image Side (PC Only) -->
         <div id="nav-image-side-wrapper" class="nav-image-side-wrapper hidden lg:block">
-            <!-- 画像コンテナがここに入り、画像が切り替わるたびに新しい要素が追加される -->
-        </div>
+            </div>
 
-        <!-- Content Side (Navigation Links) -->
         <div class="nav-content-side flex flex-col items-start justify-center p-8 lg:p-0">
-            <ul class="flex flex-col h-full space-y-8 lg:space-y-4">
-                <!-- data-img に PC/SP 共通の画像URLを設定 -->
-                <li data-img="https://placehold.co/1920x1080/DCEBEE/37383C?text=Works+Image" data-sp-img="https://placehold.co/70x70/DCEBEE/37383C?text=W">
+            <ul id="nav-list" class="flex flex-col h-full space-y-8 lg:space-y-4">
+                 <li data-img="https://kuroyuki0327.github.io/kuroyuki/images/bg_contact.png" data-sp-img="https://kuroyuki0327.github.io/kuroyuki/images/bg_contact.png">
+                    <a class="nav-link-sp font-en font-medium" href="#top">
+                         TOP
+                    </a>
+                </li>
+                <li data-img="https://kuroyuki0327.github.io/kuroyuki/images/bg_work.png" data-sp-img="https://kuroyuki0327.github.io/kuroyuki/images/bg_work.png">
                     <a class="nav-link-sp font-en font-medium" href="#works">
                         WORKS
                     </a>
                 </li>
-                <li data-img="https://placehold.co/1920x1080/FBE183/37383C?text=About+Image" data-sp-img="https://placehold.co/70x70/FBE183/37383C?text=A">
+                <li data-img="https://kuroyuki0327.github.io/kuroyuki/images/bg_about.png" data-sp-img="https://kuroyuki0327.github.io/kuroyuki/images/bg_about.png">
                     <a class="nav-link-sp font-en font-medium" href="#about">
                         ABOUT
                     </a>
                 </li>
-                <li data-img="https://placehold.co/1920x1080/B5D7E0/37383C?text=Contact+Image" data-sp-img="https://placehold.co/70x70/B5D7E0/37383C?text=C">
+                <li data-img="https://kuroyuki0327.github.io/kuroyuki/images/bg_contact.png" data-sp-img="https://kuroyuki0327.github.io/kuroyuki/images/bg_contact.png">
                     <a class="nav-link-sp font-en font-medium" href="#contact">
                        CONTACT
                     </a>
                 </li>
             </ul>
             
-            <!-- PC Nav Contact/Social (添付画像を参照して配置を修正) -->
-            <div class="lg:mt-auto lg:pb-12">
-                 <!-- 添付画像の「オンラインストア」相当のボタン -->
-                <a href="#" class="pc-nav-contact-btn mb-6" style="border-color: var(--color-accent); color: var(--color-accent);">ONLINE STORE</a>
-                
-                <!-- 添付画像の「セミナー・ワークショップ」相当のボタン -->
-                <a href="#" class="pc-nav-contact-btn">SEMINAR / WORKSHOP</a>
-
-                <!-- 添付画像の「お問合せ」相当のコンタクトリンク -->
-                <div class="pc-nav-contact-link-wrapper lg:mt-12">
-                    <p class="text-sm text-gray-400 mb-2">CONTACT</p>
-                    <a href="mailto:peche.toitoitoi@gmail.com" class="text-xs">Email: kuro.kuro.yuki0327@gmail.com</a>
+            <div class="nav-pad">
+                <div class="pc-nav-contact-link-wrapper">
+                    <p class="text-sm col-ac mb-2">CONTACT</p>
+                    <a href="mailto:kuro.kuro.yuki0327@gmail.com" class="text-xs">Email: kuro.kuro.yuki0327@gmail.com</a>
                     
-                    <!-- PC Nav Social Icons -->
                     <div class="pc-nav-social hidden lg:flex space-x-4 mt-4">
-                        <a href="#" class="social-icon text-lg" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon text-lg" aria-label="LINE"><i class="fab fa-line"></i></a>
+                        <a href="https://www.instagram.com/kryk_0327?igsh=dDBwaW5uMmhjcTVt&utm_source=qr" class="social-icon text-lg" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://chat.google.com/room/AAQAtKjAcII/R-1JEqurSfU/R-1JEqurSfU?cls=10" class="social-icon text-lg" aria-label="LINE"><i class="fab fa-line"></i></a>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- SP Nav Social Icons (Mobile Only) -->
         <div class="sp-nav-social block lg:hidden flex justify-center space-x-10 mt-auto">
-            <a href="#" class="social-icon text-2xl" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon text-2xl" aria-label="LINE"><i class="fab fa-line"></i></a>
+            <a href="https://www.instagram.com/kryk_0327?igsh=dDBwaW5uMmhjcTVt&utm_source=qr" class="social-icon text-2xl" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://chat.google.com/room/AAQAtKjAcII/R-1JEqurSfU/R-1JEqurSfU?cls=10" class="social-icon text-2xl" aria-label="LINE"><i class="fab fa-line"></i></a>
         </div>
     </nav>
     
     <main>
-        <!-- Top Section (FV / Main Visual) -->
         <section id="top" class="top relative h-screen overflow-hidden">
-            <!-- Main Visual Slider - data-src-sp を追加し、JSで出し分ける -->
             <div id="mv-slider" class="relative h-full w-full">
-                <!-- Slide 1 -->
                 <div class="mv-slide" 
                      data-src="images/DSC01627.jpeg" 
                      data-src-sp="images/DSC03618.jpeg"></div>
-                <!-- Slide 2 -->
                 <div class="mv-slide" 
                      data-src="images/DSC07869.jpeg"
                      data-src-sp="images/DSC04457.jpeg"></div>
-                <!-- Slide 3 -->
                 <div class="mv-slide" 
                      data-src="images/DSC07176.jpeg"
                      data-src-sp="images/DSC09664.jpeg"></div>
             </div>
 
-            <!-- FV画像の上に重ねるグレーの透過カバー -->
             <div class="mv-overlay"></div>
 
-            <!-- Logo Text Overlay -->
             <div class="top__logo-text absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 flex flex-col items-center justify-center z-20">
                 <h1 id="logo-h1" class="text-5xl md:text-8xl font-bold flex flex-wrap w-96 md:w-[500px] leading-tight text-white flex-col" aria-label="DESIGN PORTFORIO">
-                    <!-- Simulate image-based logo with letter-by-letter animation -->
                     <div class="logo-wrap"><span class="logo-char">D</span><span class="logo-char">E</span><span class="logo-char">S</span>
                     <span class="logo-char">I</span><span class="logo-char">G</span><span class="logo-char">N</span></div>
                     <div class="logo-wrap"><span class="logo-char">P</span>
@@ -1113,17 +1155,14 @@
                 </p>
             </div>
             
-            <!-- Scroll Indicator -->
             <div id="scroll-indicator" class="scroll-indicator">
                 SCROLL
                 <div class="scroll-line"></div>
             </div>
         </section>
 
-        <!-- Works Section -->
         <section id="works" class="works py-32 md:py-48 relative overflow-hidden">
              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Works Title (Black Bar Animation) -->
                 <div id="works-title-anim" class="works-title-container mb-24 md:mb-40">
                     <div class="works-title-line-wrapper">
                         <div class="works-title-bar"></div>
@@ -1136,7 +1175,6 @@
                 </div>
                 
                 <div class="works__wrapper space-y-24 md:space-y-40">
-                    <!-- Works Item 1 -->
                     <div class="works-item-hover group flex flex-col md:flex-row items-center cursor-none">
                         <div class="works-img-inner w-full md:w-1/2 shadow-xl overflow-hidden rounded-lg transition-transform duration-500 ease-out">
                             <img class="transform transition-transform duration-500 ease-out" src="design01.jpg" alt="ひめそば">
@@ -1147,13 +1185,11 @@
                             <p class="text-sm leading-relaxed mb-4">兵庫県に２店舗展開し、十割そばを提供している<br>ひめそば様の公式サイトを制作しました</p>
                             <span class="font-en text-xs text-gray-400 tracking-[0.15em]">direction / design / coding</span>
                             <div class="pt-4 text-left md:text-right">
-                                <!-- UPDATED: 詳しくみるボタン (Original Style) -->
                                 <a href="#" class="works-item-default-btn">詳しくみる</a>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Works Item 2 (Reversed Layout) -->
                     <div class="works-item-hover group flex flex-col md:flex-row-reverse items-center cursor-none">
                         <div class="works-img-inner w-full md:w-1/2 shadow-xl overflow-hidden rounded-lg transition-transform duration-500 ease-out">
                             <img class="transform transition-transform duration-500 ease-out" src="images/design02.jpg" alt="BIMERA">
@@ -1164,21 +1200,18 @@
                             <p class="text-sm leading-relaxed mb-4">広島県に2店舗を展開し、まつ毛・脱毛・エステのサービスを提供している<br>BIMERA(ビメラ)の公式サイトを制作しました</p>
                             <span class="font-en text-xs text-gray-400 tracking-[0.15em]">direction / design / coding</span>
                             <div class="pt-4 text-left md:text-right">
-                                <!-- UPDATED: 詳しくみるボタン (Original Style) -->
                                 <a href="#" class="works-item-default-btn">詳しくみる</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- View All Button - CUSTOM STYLE -->
                 <div class="text-center mt-32">
                     <a href="#" class="custom-big-btn inline-flex items-center justify-center group">
                         <p class="btn-text-jp font-medium tracking-[0.1em] text-sm ml-6 mr-6">すべてみる</p>
                         <div class="btn-circle-wrapper w-[40px] h-[40px] rounded-full flex items-center justify-center">
                             <div class="btn-circle"></div>
                             <div class="btn-arrow-container w-full h-full">
-                                <!-- Arrow Icon SVG -->
                                 <svg class="btn-arrow w-5 h-5 transition-transform duration-400 ease-out absolute" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M5 12h14M12 5l7 7-7 7"/>
                                 </svg>
@@ -1189,10 +1222,8 @@
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="about-section-container py-32 md:py-48 relative overflow-hidden">
-             <!-- Wave SVG for Curve (Updated to be top round) -->
-            <svg class="about-curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+             <svg class="about-curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
                 <path d="M 0 100 L 0 50 Q 250 0 500 50 T 1000 50 L 1000 100 Z" fill="var(--color-light)"></path>
             </svg>
 
@@ -1219,7 +1250,6 @@
                                 <div class="btn-circle-wrapper w-[40px] h-[40px] rounded-full flex items-center justify-center">
                                     <div class="btn-circle"></div>
                                     <div class="btn-arrow-container w-full h-full">
-                                        <!-- Arrow Icon SVG -->
                                         <svg class="btn-arrow w-5 h-5 transition-transform duration-400 ease-out absolute" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M5 12h14M12 5l7 7-7 7"/>
                                         </svg>
@@ -1243,17 +1273,14 @@
                     </div>
                 </div>
 
-                <!-- Illust Section -->
                 <div class="about__illust mt-32 md:mt-48 overflow-hidden">
                     <div class="about__illust-introduction text-center mb-16">
                         <img class="w-20 md:w-28 mx-auto mb-4" src="https://kuroyuki0327.github.io/kuroyuki/images/camera.png" alt="カメラ">
                         <p class="text-sm leading-relaxed">趣味でカメラを楽しんでいます。<br>一瞬の美しさやその場の空気感を切り取る時間は、デザインでの構図や色づかいのアイデアにもつながっていて、日々の制作に良い刺激を与えてくれています。</p>
                     </div>
 
-                    <!-- Infinity Scroll (Modified to 2 Rows) -->
                     <div class="scroll-infinity overflow-hidden">
                         
-                        <!-- Row 1: Left Scroll (Images 01-15) -->
                         <div class="scroll-infinity__wrap mb-4">
                             <ul class="scroll-infinity__list scroll-infinity__list--left">
                                 <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img01.png"></li>
@@ -1271,7 +1298,6 @@
                                 <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img14.png"></li>
                                 <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img15.png"></li>
                             </ul>
-                            <!-- Duplicate for seamless loop -->
                             <ul class="scroll-infinity__list scroll-infinity__list--left" aria-hidden="true">
                                 <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img01.png"></li>
                                 <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img02.png"></li>
@@ -1290,7 +1316,6 @@
                             </ul>
                         </div>
 
-                        <!-- Row 2: Right Scroll (Images 16-30) -->
                         <div class="scroll-infinity__wrap">
                             <ul class="scroll-infinity__list scroll-infinity__list--right">
                                 <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img16.png"></li>
@@ -1308,7 +1333,6 @@
                                 <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img29.png"></li>
                                 <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img28.png"></li>
                             </ul>
-                            <!-- Duplicate for seamless loop -->
                             <ul class="scroll-infinity__list scroll-infinity__list--right" aria-hidden="true">
                                 <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img16.png"></li>
                                 <li class="scroll-infinity__item p-2"><img src="https://kuroyuki0327.github.io/kuroyuki/images/slide_img17.png"></li>
@@ -1333,10 +1357,8 @@
 
     </main>
     
-    <!-- Footer -->
-    <footer>
+    <footer style="position:relative; margin-top: 5rem;">
         <div id="contact" class="footer__contact text-center">
-            <!-- Animated Border -->
             <div class="contact__content-wrapper mx-auto relative">
                 <p class="contact__thanks-message">ご覧いただき<br class="sp">ありがとうございます</p>
    
@@ -1344,26 +1366,21 @@
 
            <p class="contact-title">CONTACT</p>
                 
-                <!-- Contact Section Links -->
                 <div class="contact__mail mb-8">
                     <span class="block mb-6 text-sm">下記の連絡先にお気軽にご連絡ください</span>
                     
-                    <!-- Email -->
                     <div class="email">
-                        <a class="mail-btn contact__mail-link inline-flex items-center justify-center w-full max-w-sm py-4 px-8 border border-accent rounded-full bg-white text-accent font-en tracking-wider text-sm" href="mailto:peche.toitoitoi@gmail.com">
+                        <a class="mail-btn contact__mail-link inline-flex items-center justify-center w-full max-w-sm py-4 px-8 border border-accent rounded-full bg-white text-accent font-en tracking-wider text-sm" href="mailto:kuro.kuro.yuki0327@gmail.com">
                             <i class="fas fa-envelope mr-3"></i> kuro.kuro.yuki0327@gmail.com
                         </a>
                     </div>
                     
                 </div>
 
-                            <!-- Social Media Icons (Contact Section) -->
                 <div class="flex justify-center space-x-6">
                     <a href="https://www.instagram.com/kryk_0327?igsh=dDBwaW5uMmhjcTVt&utm_source=qr" class="social-icon text-3xl text-gray-700 hover:text-accent transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://chat.google.com/room/AAQAtKjAcII/R-1JEqurSfU/R-1JEqurSfU?cls=10" class="social-icon text-3xl text-gray-700 hover:text-accent transition-colors" aria-label="LINE"><i class="fab fa-line"></i></a>
                 </div>
-            <!-- Page Top Button -->
-            <p id="page-top" class="page-top-btn"><a href="#top"><img class="w-16 h-16" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2337383C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 19V5M5 12l7-7 7 7'/></svg>" alt="ページトップへ"></a></p>
         </div>
         
         <div class="footer__content-wrapper mx-auto flex justify-between items-center py-6 px-4 sm:px-6 lg:px-8">
@@ -1377,6 +1394,13 @@
             <small class="text-xs font-medium tracking-[0.16em] text-center w-full sm:w-auto">© 2025 YUKI KURONOTSUBO</small>
         </div>
     </footer>
+    
+    <div id="page-top" class="page-top-btn" role="button" aria-label="ページトップへ">
+        <a href="#top" class="page-top-link">
+            <i class="fas fa-arrow-up page-top-icon"></i> 
+            <span>Page Top</span>
+        </a>
+    </div>
 </div>
 
 <script>
@@ -1385,9 +1409,10 @@
     const mainHamburger = document.getElementById('main-hamburger');
     const spNav = document.getElementById('sp-nav');
     const navLinks = document.querySelectorAll('.nav-link-sp');
-    const navImageSideWrapper = document.getElementById('nav-image-side-wrapper'); // 画像ラッパー
+    const navImageSideWrapper = document.getElementById('nav-image-side-wrapper'); 
     const navListItems = document.querySelectorAll('#sp-nav li[data-img]');
-    const topSection = document.getElementById('top');
+    const navListContainer = document.getElementById('nav-list');
+    const topSection = document.getElementById('top'); // FVセクション
     const logoChars = document.querySelectorAll('.logo-char');
     const logoSubText = document.getElementById('logo-sub-text');
     const scrollIndicator = document.getElementById('scroll-indicator');
@@ -1397,11 +1422,13 @@
     const aboutSection = document.getElementById('about');
 
     let currentSlide = 0;
-    const slideDuration = 5000; // 5 seconds per slide
-    let slideInterval; // スライドショーのインターバルIDを保持
+    const slideDuration = 5000; 
+    let slideInterval; 
 
-    // WORKSのデフォルト画像URLを取得
-    const defaultImageUrl = document.querySelector('li[data-img]').getAttribute('data-img');
+    // WORKSのデフォルト画像URL (WORKSのナビゲーションアイテムから取得)
+    const defaultNavImageItem = Array.from(navListItems).find(item => item.querySelector('a').getAttribute('href') === '#works');
+    const defaultImageUrl = defaultNavImageItem ? defaultNavImageItem.getAttribute('data-img') : 'https://placehold.co/1920x1080/DCEBEE/37383C?text=Default';
+    let lastShownImageUrl = defaultImageUrl;
 
     // --- Utility Functions ---
     function isDesktop() {
@@ -1424,11 +1451,15 @@
         function animateCursor() {
             posX += (mouseX - posX) * 0.1;
             posY += (mouseY - posY) * 0.1;
-            // Translate the cursor element
             cursor.style.transform = `translate(${posX}px, ${posY}px)`;
             requestAnimationFrame(animateCursor);
         }
-        animateCursor();
+        
+        // アニメーションループを起動
+        if (!cursor.dataset.isAnimating) {
+            cursor.dataset.isAnimating = 'true';
+            animateCursor();
+        }
 
         // Hover effect for links
         document.querySelectorAll('a, button, .works-item-hover').forEach(el => {
@@ -1437,7 +1468,7 @@
         });
     }
 
-    // --- FV Slider Control ---
+    // --- FV Slider Control (index_top.htmlのロジック) ---
     const slides = Array.from(mvSlider.querySelectorAll('.mv-slide'));
 
     function setSlideImage(slide) {
@@ -1451,94 +1482,67 @@
         }
     }
 
-    /**
-     * 次のスライドに切り替える（ふわっと切り替えに対応）
-     */
     function nextSlide() {
-        // スライドが停止中の場合は実行しない
         if (mvSlider.classList.contains('slide-paused')) return;
-
-        // 現在のアクティブスライドを取得
         const currentActiveSlide = slides[currentSlide];
-
-        // 次のスライドのインデックスを計算
         currentSlide = (currentSlide + 1) % slides.length;
         const nextActiveSlide = slides[currentSlide];
 
-        // 1. 次のスライドの画像をセットし、最前面に移動
         setSlideImage(nextActiveSlide); 
-        // NOTE: z-indexを一時的に上げることで、次のスライドが現在のスライドの上に来るようにする
         nextActiveSlide.style.zIndex = '2'; 
 
-        // 2. 次のスライドのフェードインアニメーションを適用
-        //   - opacity: 0 -> 1 (transition: 1.5s ease-in-out) が発生
-        //   - zoomIn アニメーションが開始
         nextActiveSlide.classList.add('mv-slide-active');
         nextActiveSlide.style.animation = `zoomIn ${slideDuration / 1000}s linear forwards`;
 
-        // 3. 現在のアクティブスライドを非アクティブにする
-        //   - 非アクティブ化をフェードイン後に実行することで、ふわっと切り替わる
         if (currentActiveSlide) {
-            // 次のスライドが完全に表示された後に、古いスライドをリセット
             setTimeout(() => {
                 currentActiveSlide.classList.remove('mv-slide-active');
-                currentActiveSlide.style.animation = 'none'; // アニメーションを停止
-                currentActiveSlide.style.zIndex = '1'; // z-indexを元に戻す
-            }, 1500); // CSSの transition-duration (1.5s) と合わせる
+                currentActiveSlide.style.animation = 'none'; 
+                currentActiveSlide.style.zIndex = '1'; 
+            }, 1500); 
         }
-        
     }
 
     function startSlider() {
-        // 既にインターバルが設定されている場合はクリア
         clearInterval(slideInterval); 
-        mvSlider.classList.remove('slide-paused'); // アニメーション一時停止を解除
+        mvSlider.classList.remove('slide-paused'); 
         
-        // 最初のスライドを初期表示
         if(slides.length > 0) {
-             // 初回実行時はすぐに開始
             const initialSlide = slides[currentSlide];
             setSlideImage(initialSlide);
             initialSlide.classList.add('mv-slide-active');
             initialSlide.style.animation = `zoomIn ${slideDuration / 1000}s linear forwards`;
         }
 
-        // nextSlideを呼び出し、新しいインターバルを設定
         slideInterval = setInterval(nextSlide, slideDuration);
     }
 
     function stopSlider() {
-        clearInterval(slideInterval); // インターバルをクリア
-        mvSlider.classList.add('slide-paused'); // アニメーション一時停止
+        clearInterval(slideInterval); 
+        mvSlider.classList.add('slide-paused'); 
     }
 
     function initializeSlider() {
-        // 初回ロード時に画像をセット
         slides.forEach(setSlideImage);
         startSlider();
     }
     
-    // --- PC Navigation Image Logic (Element Switching) ---
+    // --- PC Navigation Image Logic (Element Switching) (index_work.htmlのロジック) ---
     
-    // 現在表示されている画像要素を保持する変数
     let currentNavImageElement = null;
-    let lastShownImageUrl = defaultImageUrl; // 最後に表示された画像URLを保持
 
     /**
      * 新しい画像をふわっとアニメーションで表示する
      * @param {string} imageUrl 表示する画像のURL
-     * @param {boolean} forceTransition 遷移アニメーションを強制するかどうか (mouseleave対策)
+     * @param {boolean} forceTransition 遷移アニメーションを強制するかどうか
      */
     function showNavImage(imageUrl, forceTransition = true) {
         if (!isDesktop() || !navImageSideWrapper || !imageUrl) return;
-
-        // 最後の画像と同じURLであれば、アニメーションをトリガーしない（表示状態を維持）
-        if (imageUrl === lastShownImageUrl) {
-             // 既に表示されている画像が目的の画像と同じ場合は、処理をスキップ
+        
+        if (imageUrl === lastShownImageUrl && currentNavImageElement) {
              return; 
         }
         
-        // 古い画像要素を安全に保持
         const oldImageElement = currentNavImageElement;
 
         // 1. 新しい画像コンテナを作成
@@ -1549,14 +1553,12 @@
         // 2. 新しい要素をラッパーに追加
         navImageSideWrapper.appendChild(newImageContainer);
 
-        // 3. アニメーションをトリガー（DOMに追加してからクラスを適用する）
+        // 3. アニメーションをトリガー
         if (forceTransition) {
-             // 遷移アニメーションを有効にする
              setTimeout(() => {
                 newImageContainer.classList.add('active');
-            }, 10); // ごく短い遅延でCSSトランジションを有効化
+            }, 10); 
         } else {
-            // アニメーションをスキップし、すぐにアクティブ状態にする
             newImageContainer.classList.add('active');
         }
 
@@ -1564,136 +1566,137 @@
         currentNavImageElement = newImageContainer;
         lastShownImageUrl = imageUrl;
 
-
         // 5. 古い画像要素を管理し、消去する
         if (oldImageElement) {
-            // 古い画像をアクティブ解除し、消えるアニメーションを開始
             oldImageElement.classList.remove('active');
             
-            // 完全に消えた後にDOMから削除
             setTimeout(() => {
-                // 削除する要素が、現在アクティブな要素でないことを確認
                 if (oldImageElement.parentNode === navImageSideWrapper && oldImageElement !== currentNavImageElement) {
                     navImageSideWrapper.removeChild(oldImageElement);
                 }
-            }, 600); // CSSトランジション時間（0.5s）より少し長く設定
+            }, 600); 
         }
     }
 
     function setInitialNavImage() {
-        if (isDesktop()) {
-            // メニューが開いた時、WORKSの画像をアニメーションなしで即座に設定
-            if (lastShownImageUrl !== defaultImageUrl || !currentNavImageElement) {
-                // lastShownImageUrlを更新するために、一旦リセットしてから呼び出す
-                const tempUrl = lastShownImageUrl;
-                lastShownImageUrl = ""; 
-                showNavImage(defaultImageUrl, false); // forceTransition=falseでアニメーションをスキップ
-            }
+        if (isDesktop() && !currentNavImageElement) {
+            // 初回表示時またはメニュー再開時: WORKSの画像に設定
+            showNavImage(defaultImageUrl, false); 
         }
     }
 
-    // --- Hamburger Menu Logic (Modified for X transformation) ---
+    // --- Hamburger Menu Logic ---
     function toggleMenu() {
         const isOpen = mainHamburger.classList.toggle('open'); 
 
         if (isOpen) {
-            // メニューを開く
             spNav.classList.remove('hidden');
             
-            // 1. 表示/レイアウトを決定
             if (isDesktop()) {
-                spNav.classList.add('flex'); // PC: side-by-side flex layout
-                setInitialNavImage(); // PCの場合、Worksの画像をデフォルトで表示
+                spNav.classList.add('flex'); 
+                setInitialNavImage(); 
+                document.body.style.overflow = 'hidden'; // SP/PC共通でスクロール禁止
             } else {
-                spNav.classList.add('block'); // SP: stacked block layout
+                spNav.classList.add('block'); 
+                document.body.style.overflow = 'hidden'; // SP/PC共通でスクロール禁止
             }
             
-            // 2. フェードインアニメーションを開始 (ごく短い遅延でCSSトランジションを有効化)
             setTimeout(() => {
                 spNav.classList.add('opacity-100');
             }, 10);
 
-            // スクロール禁止を解除 (前回の修正で削除)
-            stopSlider(); // FVスライドを停止
+            stopSlider(); 
         } else {
-            // メニューを閉じる
-            
-            // 1. フェードアウトアニメーションを開始
             spNav.classList.remove('opacity-100');
 
-            // 2. アニメーション完了後に hidden クラスとレイアウトクラスを削除
             setTimeout(() => {
                 spNav.classList.add('hidden');
                 spNav.classList.remove('flex', 'block');
-                // スクロールを戻すを解除 (前回の修正で削除)
-                startSlider(); // FVスライドを再開
+                document.body.style.overflow = ''; 
+                startSlider(); 
                 
                 // PCホバー画像をリセット
                 if (currentNavImageElement && currentNavImageElement.parentNode === navImageSideWrapper) {
                     navImageSideWrapper.removeChild(currentNavImageElement);
                 }
                 currentNavImageElement = null;
-                lastShownImageUrl = defaultImageUrl; // リセット
-            }, 500); // CSSの transition-duration: 0.5s と合わせる
+                lastShownImageUrl = defaultImageUrl; 
+            }, 500); 
         }
     }
 
     mainHamburger.addEventListener('click', toggleMenu);
+
+    // ナビゲーションリンクのクリック処理
     navLinks.forEach(link => link.addEventListener('click', (e) => {
-        // スムーズスクロールが完了してからメニューを閉じる
-        setTimeout(toggleMenu, 500); 
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if(targetElement) {
+            // スムーズスクロール
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+            });
+            // スムーズスクロールが完了してからメニューを閉じる
+            setTimeout(toggleMenu, 500); 
+        } else {
+             // リンク先がセクションでない場合（e.g., #top, #contactなど）はそのまま閉じる
+             setTimeout(toggleMenu, 500);
+        }
     })); 
 
-    // PC Navigation Hover Logic (Only applies on desktop)
+    // PC Navigation Hover Logic 
     navListItems.forEach(item => {
-        // mouseenter: 新しい画像へのアニメーション切り替え
         item.addEventListener('mouseenter', () => {
             if (isDesktop()) {
                 const imageUrl = item.getAttribute('data-img');
-                // ホバー時はアニメーションを有効にする (forceTransition=true)
                 showNavImage(imageUrl, true); 
             }
         });
-        
-        // mouseleave: PC版では何もしない (画像を表示したままにする)
     });
+    
+    // ナビゲーションリスト全体からマウスが離れたら、WORKSの画像に戻す
+    if (navListContainer) {
+        navListContainer.addEventListener('mouseleave', () => {
+            if (isDesktop() && mainHamburger.classList.contains('open')) {
+                showNavImage(defaultImageUrl, true); 
+            }
+        });
+    }
 
     // Handle PC/SP layout on resize
     window.addEventListener('resize', () => {
         const isOpen = mainHamburger.classList.contains('open');
-        // カーソル更新
         updateCursor();
 
         if (isOpen) {
-            // 開いている場合は、画面サイズに応じて flex/block を切り替える
             spNav.classList.remove('hidden', 'flex', 'block');
-            spNav.classList.add('opacity-100'); // フェードイン状態を維持
+            spNav.classList.add('opacity-100'); 
             if (isDesktop()) {
                 spNav.classList.add('flex');
-                // PCモードになったらWORKS画像を再設定
                 setInitialNavImage();
             } else {
                 spNav.classList.add('block');
                 // PCからSPへ切り替わった場合は画像をクリア
                 if (currentNavImageElement && currentNavImageElement.parentNode === navImageSideWrapper) {
                     navImageSideWrapper.removeChild(currentNavImageElement);
+                    currentNavImageElement = null;
+                    lastShownImageUrl = defaultImageUrl;
                 }
-                currentNavImageElement = null;
-                lastShownImageUrl = defaultImageUrl; // リセット
             }
-            // 既に停止しているはずだが、念のため再確認
+            // スライドの画像URLを現在の画面サイズに合わせて更新
+            slides.forEach(setSlideImage);
             stopSlider(); 
         } else {
-            // 閉じている場合は、hiddenを維持
             spNav.classList.add('hidden');
             spNav.classList.remove('flex', 'block', 'opacity-100');
+            // スライドの画像URLを現在の画面サイズに合わせて更新
+            slides.forEach(setSlideImage);
             startSlider();
         }
-        
-        // スライドの画像URLを現在の画面サイズに合わせて更新
-        slides.forEach(setSlideImage);
     });
-
 
     // --- Entrance Animation Logic ---
     function runEntranceAnimation() {
@@ -1723,9 +1726,12 @@
         });
     }, { threshold: 0.1 });
 
-    // Page Top Button Visibility
+    // Page Top Button Visibility (index_work.htmlのロジックを採用)
     function updatePageTopButton() {
-        if (window.scrollY > topSection.offsetHeight) {
+        // FVセクションの高さを超えたら表示
+        const fvHeight = topSection ? topSection.offsetHeight : 0; 
+        
+        if (window.scrollY > fvHeight) { 
             pageTopBtn.classList.add('visible');
         } else {
             pageTopBtn.classList.remove('visible');
