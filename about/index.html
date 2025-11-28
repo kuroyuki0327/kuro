@@ -1187,6 +1187,7 @@ span.ast {
 
 .second p {
     margin-bottom: 4vw;
+	font-family: 游ゴシック体, YuGothic, 'Yu Gothic', "游ゴシック Medium", "Yu Gothic Medium", 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 }
 
 .second p:last-child {
@@ -1204,7 +1205,7 @@ span.ast {
 .intro{position: relative;padding-top: 10vw;margin-bottom: 14vw;}
 .intro-ttl .en{font-size: 11vw; font-family: minerva-modern; font-weight: 400;display: block;opacity: 0.1;text-align: right;line-height: 1;position: absolute; right: 0;z-index: -1;letter-spacing: 0.01em;}
 .intro .ttl{font-family: var(--mincho);font-size: 7vw;}
-
+.intro_img{width: 100%; border-radius: 10px; display: flex; flex-direction: column; align-items: center;}
 .intro_img img{width: 100%;}
 .intro_img img:nth-child(1){position: relative;left: -6vw;margin-bottom: 4vw;}
 .intro_img img:nth-child(2){width: 100%;margin: 0 0 0 auto;}
@@ -1217,7 +1218,7 @@ span.ast {
     margin-bottom: 6vw;
 }
 .recommend .ttl{position: relative;margin-bottom: 4vw;padding-top: 0;}
-.recommend .ttl .en{text-align: center;display: block;font-size: 14vw;position: absolute;transform: translateX(-50%);left: 50%;width: 100%;top: -6vw;opacity: 0.1;color: #333;/* font-family: minerva-modern; */font-weight: 400;} /* 色を調整し、目立たなくする */
+.recommend .ttl .en{text-align: center;display: block;font-size: 14vw;position: absolute;transform: translateX(-50%);left: 50%;width: 100%;top: -6vw;opacity: 0.1;color: #333;/* font-family: minerva-modern; */font-weight: 400; font-family: minerva-modern; font-weight: 400;} /* 色を調整し、目立たなくする */
 .recommend .ttl .jp{color: #333;font-family: var(--mincho);text-align: center;display: block;font-size: 7vw; margin-bottom: 8vw;} /* 色とマージンを調整 */
 
 /* 強みカードの新しいスタイル (SP) */
@@ -1241,6 +1242,9 @@ span.ast {
     font-weight: bold;
     color: var(--color-accent); /* #f1d506 */
     margin-bottom: 2vw;
+	font-family: "futura-pt", sans-serif;
+    font-style: normal;
+    font-weight: 400;
     display: block;
 }
 
@@ -1384,7 +1388,8 @@ pc-size
     }
 
     .midashi01 .jp {
-        font-size: 16px;
+        font-size: 37px;
+		margin-top: 1.7rem;
     }
 
     .more01, .more02 {
@@ -1861,10 +1866,11 @@ pc-size
 
     .second p {
         margin-bottom: 24px;
+        font-size: 0.875rem;
     }
 
     .second-text {
-        width: clamp(730px, 90%, 1200px);
+        width: 70vw;
         padding: 40px 0 100px;
     }
     
@@ -1872,7 +1878,7 @@ pc-size
     .intro{padding-top: 40px;margin-bottom: 100px;}
     .intro-ttl .en{font-size: 80px;right: auto;left: 60px;opacity: 1;color: #f3f3f3;}
     .intro .ttl{font-size: 36px;}
-    
+    .intro_img{width: 45%;}
     .intro_img{display: flex;justify-content: space-between;align-items: flex-start;margin-top: 50px;}
     .intro_img img{width: auto;} /* flexに合わせて調整 */
     .intro_img img:nth-child(1){position: relative;left: auto;margin-bottom: 0;width: 45%;}
@@ -1904,7 +1910,7 @@ pc-size
         padding: 30px;
     }
     .card-number {
-        font-size: 20px;
+        font-size: 30px;
         margin-bottom: 10px;
     }
     .card-icon {
