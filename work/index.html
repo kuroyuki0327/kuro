@@ -30,6 +30,10 @@
             --color-primary-dark: #363d4b; /* index_2511_workのCTA背景色 */
         }
 
+        /* Utility Classes for Fonts */
+        .font-en { font-family: var(--font-en); }
+        .font-jp { font-family: var(--font-jp); }
+
         body {
             font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
             color: var(--color-dark);
@@ -724,18 +728,24 @@
             <!-- Sub-Image / Title Section (FVとみなすセクション) -->
             <div class="work-top relative flex items-center justify-center bg-cover bg-center">
                 <div class="inset-0 top-inner">
-                    <div class="l-sub-img__works text-white">
-                    <div class="l-sub-img__works-info">
-                        <h1 class="l-sub-img__works-info-name text-2xl md:text-4xl font-bold">サムコ株式会社</h1>
-                        <p class="l-sub-img__works-info-cat inline-block bg-primary text-white px-3 py-1 text-xs md:text-sm rounded-full mt-2">ブランディング</p>
+                    <!-- 変更箇所ここから: 添付画像のようなデザインに変更 -->
+                    <div class="l-sub-img__works text-white w-full">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-16">
+                            <!-- Title Area (Left on Desktop) -->
+                            <div class="l-sub-img__works-title-area">
+                                <h1 class="font-en text-5xl md:text-7xl lg:text-8xl font-bold tracking-wider leading-none">Works</h1>
+                                <p class="font-jp text-sm md:text-base mt-2 md:mt-4 tracking-[0.2em] opacity-90">制作実績</p>
+                            </div>
+                            
+                            <!-- Text Area (Right on Desktop) -->
+                            <div class="l-sub-img__works-txt-area md:max-w-xl">
+                                <p class="font-jp text-sm md:text-base leading-loose text-justify opacity-90">
+                                    コーポレートサイトやリクルートサイト、集客サイトなど幅広い制作実績がございます。成果の伴うホームページを自信と覚悟をもって制作しております。
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <p class="l-sub-img__works-txt text-xl md:text-5xl font-bold mt-4 md:mt-6">世界の技術基盤を支える、装置メーカーとしての価値を伝えるサイト</p>
-                    <p class="l-sub-img__works-url mt-6 md:mt-8">
-                        <a href="https://www.samco.co.jp/" target="_blank" rel="noopener noreferrer" class="text-white opacity-75 text-sm md:text-base hover:opacity-100 transition-opacity duration-300">
-                            https://www.samco.co.jp/ <span class="ml-1 inline-block">↗</span>
-                        </a>
-                    </p>
-                </div>
+                    <!-- 変更箇所ここまで -->
                 </div>
             </div>
 
@@ -1243,4 +1253,3 @@
 </body>
 
 </html>
-
