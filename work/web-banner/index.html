@@ -713,13 +713,14 @@
 
         .c-single02-mv__img{
             position: relative;
-            padding: 0 0.5rem 1rem;
+            box-shadow: 7px 6px 10px 1px rgb(0 0 0 / 8%);
+            /*padding: 0 0.5rem 1rem;*/
             
         }
         
         @media (min-width: 768px) {
         .c-single02-mv__img{
-            padding: 0 3rem 2rem;
+            /*padding: 0 3rem 2rem;*/
             
         }
         }
@@ -731,7 +732,7 @@
     right: -30px;
     bottom: 0;
     height: 32vw;
-    background: #f4f7f8;
+    /*background: #f4f7f8;*/
     z-index: -1;
 }
         
@@ -787,13 +788,24 @@
         .c-single02__img-sp{
             width: 100vw;
         }}  
-
+            
+        .c-single02__area-img{
+            align-items: center;
+        }
+            
         @media (max-width: 767px) {
         .c-single02__area-img{
             flex-direction: column;
-            align-items: center;
         }}
-        
+
+        .c-single02__img-pc{
+            box-shadow: 7px 6px 10px 1px rgb(0 0 0 / 8%);
+        }
+
+        .c-single02__img-sp{
+            box-shadow: 7px 6px 10px 1px rgb(0 0 0 / 8%);
+        }
+            
         .c-head01__txt {
             font-size: 1rem;
             font-family: 游ゴシック体, YuGothic, 'Yu Gothic', "游ゴシック Medium", "Yu Gothic Medium", 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
@@ -932,11 +944,11 @@
                             <p class="l-sub-img__works-info-cat inline-block bg-primary text-white px-3 py-1 text-xs md:text-sm rounded-full mt-2">求人広告</p>
                         </div>
                         <p class="l-sub-img__works-txt text-xl md:sub-ttl font-bold mt-4 md:mt-6">惹きつけるビジュアルとキャッチで魅力を伝える</p>
-                        <p class="l-sub-img__works-url mt-6 md:mt-8">
+                       <!-- <p class="l-sub-img__works-url mt-6 md:mt-8">
                             <a href="https://www.ixw.co.jp/himesoba/" target="_blank" rel="noopener noreferrer" class="text-white opacity-75 text-sm md:text-base hover:opacity-100 transition-opacity duration-300">
                                 https://www.ixw.co.jp/himesoba/ <span class="ml-1 inline-block">↗</span>
                             </a>
-                        </p>
+                        </p>-->
                     </div>
                 </div>
             </div>
@@ -999,10 +1011,10 @@
                                         </div>
 
                                         <div class="c-single02__area-img mt-12 md:mt-32 px-6 md:px-auto flex md:justify-center space-y-8 md:space-y-0 md:space-x-8">
-                                            <div class="c-single02__img-pc flex-shrink-0">
+                                            <div class="c-single02__img-pc">
                                                 <img src="https://kuroyuki0327.github.io/kuroyuki/images/251029スタイリスト募集4_5.jpg" alt="PCイメージ" class="w-full h-auto mx-auto">
                                             </div>
-                                            <div class="c-single02__img-sp flex-shrink-0">
+                                            <div class="c-single02__img-sp">
                                                 <video class="top-movie" loop="" muted="" autoplay="" playsinline="" src="https://kuroyuki0327.github.io/kuroyuki/images/251029_スタイリスト募集ストーリー広告.mp4" aria-alt="動画広告"></video>
                                             </div>
                                         </div>
