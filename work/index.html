@@ -600,10 +600,10 @@
         }
 
         .top-inner{
-            height: 365px;
+            height: 27rem;
+            padding-top: 8rem;
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
-            padding-top: 130px;
             padding-left: 2rem;
             padding-right: 2rem;
         }
@@ -645,6 +645,11 @@
             border-top: solid 6px var(--color-accent);
             border-radius: 5rem;
         }
+        
+        @media all and (max-width: 767px) {
+        .top-bg-white::before {
+            border-radius: 2.5rem 0 0;
+        }}   
 
         .top-bg-white-inner {
             position: relative;
@@ -652,6 +657,12 @@
             margin-right:0;
             margin-left:auto;
         }
+
+        @media all and (max-width: 767px) {
+        .top-bg-white-inner {
+            margin-top: 2rem;
+            padding-bottom: 5rem;
+        }}           
 
         @media all and (min-width: 768px) {
             .top-bg-white::before {
@@ -722,6 +733,11 @@
             font-weight: 400;
             letter-spacing: .02em;
         }
+
+        @media (max-width: 768px) { 
+        .sp-work-wr{
+            bottom: 5rem;
+        }}
     </style>
 </head>
 <body id="works" class="min-h-screen">
@@ -802,7 +818,7 @@
                     </div>
             </div>
 
-            <div class="top-bg-white min-h-[500px] py-10 md:py-16">
+            <div class="top-bg-white min-h-[500px] py-10 md:py-16 sp-work-wr">
                 <div class="top-bg-white-inner container px-4">
                     
                     <div class="mb-8 md:mb-12 border-b border-gray-300 pb-4">
@@ -943,7 +959,7 @@
             </div>
         </main>
 
-        <footer style="position:relative; margin-top: 5rem;">
+        <footer style="position:relative;">
             <div id="contact" class="footer__contact text-center">
                 <div class="contact__content-wrapper mx-auto relative">
                     <p class="contact__thanks-message">ご覧いただき<br class="sp">ありがとうございます</p>
@@ -1308,6 +1324,7 @@
 </body>
 
 </html>
+
 
 
 
