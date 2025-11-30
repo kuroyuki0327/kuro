@@ -283,8 +283,15 @@
         footer{
             position: relative;
             padding-top: 30px;
-            margin-top: 6rem; /* index_workに合わせる */
+            margin-top: 0;
         }
+        
+        @media (min-width: 768px) {
+        footer{
+            margin-top: 6rem; 
+        }}
+            
+        
 
         footer::before {
             content: '';
@@ -590,7 +597,12 @@
         /* =========================================================================
             Works Detail Specific Styles (既存スタイルを維持・調整)
             ========================================================================= */
+        @media (max-width: 767px) {
+        #single{
+            padding-top:4rem;
+        }}
 
+        
         /* 既存のスタイルを調整/統合 */
         .bg-primary { background-color: #212836; } 
 
@@ -684,7 +696,15 @@
 
         .c-single02-mv__img{
             position: relative;
+            padding: 0 3rem 1rem;
+            
+        }
+        
+        @media (min-width: 768px) {
+        .c-single02-mv__img{
             padding: 0 3rem 2rem;
+            
+        }
         }
 
 .c-single02-mv__img::before {
@@ -693,7 +713,7 @@
     left: -30px;
     right: -30px;
     bottom: 0;
-    height: 20rem;
+    height: 32vw;
     background: #f4f7f8;
     z-index: -1;
 }
@@ -725,11 +745,25 @@
         .c-single02__img-pc{
             width: 30vw;
         }
+        @media (max-width: 767px) {
+        .c-single02__img-pc{
+            width: 100vw;
+        }}  
         
         .c-single02__img-sp{
             width: 27.5vw;
         }
 
+        @media (max-width: 767px) {
+        .c-single02__img-sp{
+            width: 100vw;
+        }}  
+
+        @media (max-width: 767px) {
+        .c-single02__area-img{
+            flex-direction: column;
+        }}
+        
         .c-head01__txt{
             font-size: 0.8rem;
             line-height: 1.5rem;
@@ -1302,5 +1336,6 @@
 
 </body>
 </html>
+
 
 
