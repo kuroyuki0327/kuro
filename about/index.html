@@ -771,7 +771,7 @@
         }
 
         .card-title {
-            font-size: 4.5vw;
+            font-size: 5.5vw;
             font-family: "游明朝", YuMincho, serif;
             font-weight: 600;
             line-height: 1.4;
@@ -779,11 +779,20 @@
         }
 
         .card-text {
-            font-size: 3.5vw;
-            line-height: 1.7;
             color: #444;
+		    font-family: 游ゴシック体, YuGothic, 'Yu Gothic', "游ゴシック Medium", "Yu Gothic Medium", 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+			font-size: 1rem;
+			line-height: 2;
         }
 
+		@media (max-width: 786px) {		
+        .card-text {
+			font-size: 0.95rem;
+			line-height: 1.8;
+        }}
+
+			
+			
         /* ツールセクション */
         .midashi02 {
             margin: 0 auto;
