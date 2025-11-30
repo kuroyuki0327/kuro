@@ -609,7 +609,7 @@
         /* MV画像のパスを調整 (index_2511_himesobaの既存パスを維持) */
         .work-top{
             background-image: url("https://kuroyuki0327.github.io/kuroyuki/images/himesoba_sp.jpg");
-            background-attachment: fixed; 
+            /*background-attachment: fixed; */
         }
         @media (min-width: 768px) {
             .work-top{
@@ -733,6 +733,8 @@
             line-height: 2;
         }
 
+        
+
         .c-head01__en{
             font-family: "futura-pt", sans-serif;
             font-weight: 400;
@@ -744,6 +746,12 @@
         .c-head01__ja{
             font-size: 2.5rem;
         }
+
+        @media (max-width: 767px) {
+        .c-head01__ja{
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }        
         
         .c-single02__img-pc{
             width: 30vw;
@@ -772,6 +780,7 @@
             font-size: 1rem;
             font-family: 游ゴシック体, YuGothic, 'Yu Gothic', "游ゴシック Medium", "Yu Gothic Medium", 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
             line-height: 2;
+            margin: 2rem 0 5rem;      
         }
         
         .c-head01__lead{
@@ -807,11 +816,24 @@
         }}
         
         @media (max-width: 767px) {
-        .works-single-other__archive{
+        .works-single-other__archive ul{
             display: flex;
             flex-direction: column;
             margin-bottom: 3rem;
-        }}
+        }
+
+        }
+
+        .works-single-other__heading-head h2{
+            margin-top: 1rem;
+        }
+
+     .c-archive03__item-info span{
+         font-size: 1rem;
+         font-family: 游ゴシック体, YuGothic, 'Yu Gothic', "游ゴシック Medium", "Yu Gothic Medium", 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+         line-height: 2;
+     }
+        
     </style>
 </head>
 <body id="himesoba" class="bg-gray-light min-h-screen">
@@ -914,7 +936,7 @@
                                                         <h2 class="c-head01__ja">課題</h2> 
                                                     </header>
                                                     <div class="c-head01__area-txt">
-                                                        <p class="c-head01__lead mb-4 md:mb-6">厳選された十割そばの「本物」の味と、店舗の温かい雰囲気をウェブ上で伝える</p>
+                                                        <p class="c-head01__lead mb-4 md:mb-6">厳選された十割そばの<br class="sp">「本物」の味と、店舗の温かい雰囲気をウェブ上で伝える</p>
                                                         <p class="c-head01__txt">実店舗の良さをデジタル上で表現しきれていない点を解消するため、写真とコピーライティングを重視した構成を採用しました。十割そばの「安心・安全」へのこだわりと、「ひめそば」ならではの歴史や製法を明確に伝え、顧客が安心して来店できるような導線を設計することが課題でした。</p>
                                                     </div>
                                                 </div>
@@ -989,8 +1011,8 @@
                 <div class="works-single-other__inner max-w-7xl mx-auto px-4 md:px-6">
                     <div class="works-single-other__heading flex flex-col md:flex-row justify-between items-start md:items-center mb-12 md:mb-16">
                         <header class="works-single-other__heading-head w-full md:w-auto">
-                            <p class="c-head01__en text-sm md:text-xl font-bold font-en">Other works</p>
-                            <h2 class="c-head01__ja text-2xl md:text-4xl font-bold">その他の制作実績</h2>
+                            <p class="c-head01__en text-sm md:text-xl font-en">Other works</p>
+                            <h2 class="c-head01__ja text-2xl md:text-4xl">その他の制作実績</h2>
                         </header>
                         <div class="works-single-other__heading-btn mt-4 md:mt-0 hidden md:block">
                             <a href="https://kuroyuki0327.github.io/kuroyuki/work/" class="custom-big-btn inline-flex items-center justify-center group">
@@ -1377,6 +1399,7 @@
 
 </body>
 </html>
+
 
 
 
