@@ -389,7 +389,8 @@
                 padding-top: 0;
             }
             .sp-nav li {
-                margin-bottom: 1.5rem;
+                margin-bottom: 1.5rem!important;
+                margin-top: 0!important;                
                 padding-left: 2rem;
             }
             .nav-link-sp {
@@ -402,8 +403,13 @@
             
             /* SP Navのソーシャルアイコン配置 */
             .sp-nav-social {
-                padding: 3rem 2rem 1rem;
-                text-align: center;
+                padding: 0 4rem 1rem;
+                justify-content: flex-start;
+            }
+
+            .nav-pad{
+                padding-left: 2rem;
+                padding-top: 4rem;
             }
         }
 
@@ -1114,7 +1120,7 @@
                 </div>
             </div>
             
-            <div class="sp-nav-social block lg:hidden flex justify-center space-x-10 mt-auto">
+            <div class="sp-nav-social block lg:hidden flex space-x-6 mt-auto">
                 <a href="https://www.instagram.com/kryk_0327?igsh=dDBwaW5uMmhjcTVt&amp;utm_source=qr" class="social-icon text-2xl" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://chat.google.com/room/AAQAtKjAcII/R-1JEqurSfU/R-1JEqurSfU?cls=10" class="social-icon text-2xl" aria-label="LINE"><i class="fab fa-line"></i></a>
             </div>
