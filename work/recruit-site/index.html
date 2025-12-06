@@ -443,7 +443,6 @@
         // [修正] Page Top Button Styles - index_workに完全統一
         // ----------------------------------------------------------- */
         .page-top-btn {
-            /* スクロール位置によってpositionが切り替わるため、初期設定はfixed */
             position: fixed;
             /* PC: 右下 */
             right: 40px; 
@@ -451,20 +450,13 @@
             z-index: 40;
             opacity: 0;
             /* ふわっと出現/消滅のアニメーション */
-            transition: opacity 0.5s ease-out, visibility 0.5s ease-out, transform 0s, bottom 0s; /* bottom, transformのtransitionはJSで制御するためCSSでは無効化 */
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
             visibility: hidden; /* 初期状態では非表示 */
         }
         
         .page-top-btn.visible {
             opacity: 1;
             visibility: visible;
-        }
-        
-        /* position: absolute に切り替えるためのクラス */
-        .page-top-btn.absolute-bottom {
-             position: absolute;
-             /* right の値は fixed 時と同じくJSで制御 */
-             /* bottom の値はJSでフッターの上端からの相対位置として計算 */
         }
 
         /* ボタン本体のデザイン */
@@ -1172,7 +1164,7 @@
             <p id="page-top" class="page-top-btn" style="display:none;"><a href="#recruit"><img class="w-16 h-16" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2337383C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 19V5M5 12l7-7 7 7'/></svg>" alt="ページトップへ"></a></p>
             </div>
             
-            <div id="footer-content" class="footer__content-wrapper mx-auto flex justify-between items-center py-6 px-4 sm:px-6 lg:px-8">
+            <div class="footer__content-wrapper mx-auto flex justify-between items-center py-6 px-4 sm:px-6 lg:px-8">
                 <nav class="hidden sm:block">
                     <ul class="flex space-x-6">
                         <li><a href="https://kuroyuki0327.github.io/kuroyuki/" class="text-sm font-medium tracking-[0.16em] hover:opacity-60 transition-opacity">トップ</a></li>
@@ -1185,7 +1177,7 @@
         </footer>
     </div>
 
-    <script>
+<script>
         // --- Global Variables & Constants (index_2511_work.html から移植) ---
         const cursor = document.getElementById('cursor');
         const mainHamburger = document.getElementById('main-hamburger');
@@ -1196,8 +1188,7 @@
         const navListContainer = document.getElementById('nav-list');
         const topSection = document.querySelector('.work-top'); // メインビジュアルセクションを基準に
         const pageTopBtn = document.getElementById('page-top');
-        // フッターの黒い部分の要素（IDを付与しました）
-        const footerContent = document.getElementById('footer-content'); 
+        const footerBlack = document.querySelector('.footer__content-wrapper'); // 【追加】フッターの黒い部分を取得
 
         // WORKSのナビゲーションアイテムからデフォルト画像URLを取得
         const defaultNavImageItem = Array.from(navListItems).find(item => item.querySelector('a').getAttribute('href') === 'index_work.html#works');
@@ -1209,11 +1200,6 @@
         // --- Utility Functions ---
         function isDesktop() {
             return window.innerWidth >= 1024;
-        }
-        
-        // PC/SPでボタンのボトムオフセット値を取得
-        function getBottomOffset() {
-            return window.innerWidth <= 768 ? 20 : 40;
         }
 
         // --- Custom Cursor Logic (Desktop Only) ---
@@ -1423,67 +1409,32 @@
         });
 
 
-        // --- Scroll Logic (Page Top Button Visibility and Stop at Footer) ---
+        // --- Scroll Logic (Page Top Button Visibility & Position) ---
 
-        // Page Top Button Visibility and Sticky Footer Logic
+        // Page Top Button Visibility & Position Control
         function updatePageTopButton() {
+            // 1. Visibility (Existing)
             // work-topセクションの約半分の高さを超えたら表示
-            const scrollY = window.scrollY;
-
-            // 1. 表示/非表示の制御
-            if (topSection && scrollY > topSection.offsetHeight / 2) {
+            if (topSection && window.scrollY > topSection.offsetHeight / 2) {
                 pageTopBtn.classList.add('visible');
             } else {
                 pageTopBtn.classList.remove('visible');
             }
 
-            // 2. フッターの上で停止する制御 (黒いフッター部分: #footer-content)
-            if (footerContent && pageTopBtn.classList.contains('visible')) {
-                // フッターの黒い部分のオフセット（ドキュメント上端からの距離）
-                const footerOffsetTop = footerContent.getBoundingClientRect().top + scrollY;
-                // ボタンの高さ
-                const btnHeight = pageTopBtn.offsetHeight; 
-                // ブラウザのウィンドウの高さ
-                const windowHeight = window.innerHeight;
-                // fixed時のボトムからのマージン (CSSで設定した値)
-                const bottomOffset = getBottomOffset();
+            // 2. Position Control (New)
+            if (footerBlack) {
+                const footerRect = footerBlack.getBoundingClientRect();
+                // CSSの定義に合わせて基準となるbottomの値を設定 (SP: 20px, PC: 40px)
+                const baseBottom = window.innerWidth < 768 ? 20 : 40;
 
-                // ボタンが画面下端から 'bottomOffset' の位置にあるとき、ボタンの上端のドキュメント上の位置
-                const fixedBtnTop = scrollY + windowHeight - btnHeight - bottomOffset;
-
-                // ボタンがフッターの黒い部分に差し掛かるかをチェック
-                // `footerOffsetTop` (黒いフッターの上端) と `fixedBtnTop` (fixed時のボタンの上端) を比較
-                if (fixedBtnTop >= footerOffsetTop) {
-                    // ボタンがフッターに到達するか、または超える場合
-                    
-                    // position: absolute に切り替え、フッターの上端に固定
-                    pageTopBtn.classList.add('absolute-bottom');
-                    
-                    // absolute になった場合の bottom の値を計算
-                    // ドキュメントの総高さ - 黒いフッターの上端の位置 - ボタンの高さ - マージン
-                    // `pageTopBtn.style.bottom` には `footerContent.offsetHeight` を使うと、footer全体の高さになってしまう
-                    // 目的は「黒い部分（#footer-content）の上で止める」なので、フッター全体の開始位置からの相対位置を計算
-                    
-                    // 停止したい位置: footerContentの上端
-                    // ボタンの bottom: footerContentの高さ + 下マージン
-
-                    // フッターの親（footerタグ）のドキュメント上端からの位置
-                    const parentFooterOffsetTop = document.querySelector('footer').offsetTop;
-                    // ボタンの bottom プロパティとして設定する値（px）
-                    // 計算: ドキュメントの総高さ - ボタンが停止すべき位置 (footerContentの上端)
-                    // この値は `footerContent` の上端が画面の最下部に表示された瞬間のスクロール位置をベースに考える
-                    
-                    // 最終的な bottom の値は、親要素(footer)からの相対位置で計算
-                    // footerContent.offsetTop (footer内での位置) + footerContent.offsetHeight (footer__content-wrapperの高さ) + bottomOffset (fixed時の下マージン)
-                    
-                    const bottomValue = document.querySelector('footer').offsetHeight - footerContent.offsetTop + bottomOffset;
-                    
-                    pageTopBtn.style.bottom = bottomValue + 'px';
-                    
+                // フッターの黒い部分が画面内に入ってきた場合
+                if (footerRect.top < window.innerHeight) {
+                    // 画面下からフッター上部までの距離を計算して、bottomの値を増やすことでボタンを押し上げる
+                    const pushUp = window.innerHeight - footerRect.top;
+                    pageTopBtn.style.bottom = `${baseBottom + pushUp}px`;
                 } else {
-                    // 通常の追従モード
-                    pageTopBtn.classList.remove('absolute-bottom');
-                    pageTopBtn.style.bottom = bottomOffset + 'px'; // fixed時のbottom値を設定
+                    // フッターがまだ見えていない場合はスタイルをクリア（CSSの定義に戻す）
+                    pageTopBtn.style.bottom = '';
                 }
             }
         }
@@ -1503,32 +1454,6 @@
 
         window.addEventListener('scroll', () => {
             updatePageTopButton();
-        });
-        
-        // リサイズ時もフッターの高さを再計算
-        window.addEventListener('resize', () => {
-            const isOpen = mainHamburger.classList.contains('open');
-            updateCursor();
-            updatePageTopButton(); // 追加
-            // Force initial state check to ensure menu is closed and layout is correct
-            if (isOpen) {
-                spNav.classList.remove('hidden', 'flex', 'block');
-                spNav.classList.add('opacity-100');
-                if (isDesktop()) {
-                    spNav.classList.add('flex');
-                    setInitialNavImage();
-                } else {
-                    spNav.classList.add('block');
-                    if (currentNavImageElement && currentNavImageElement.parentNode === navImageSideWrapper) {
-                        navImageSideWrapper.removeChild(currentNavImageElement);
-                    }
-                    currentNavImageElement = null;
-                    lastShownImageUrl = defaultImageUrl;
-                }
-            } else {
-                spNav.classList.add('hidden');
-                spNav.classList.remove('flex', 'block', 'opacity-100');
-            }
         });
     </script>
 
